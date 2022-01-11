@@ -1,9 +1,8 @@
+import Home from './Home/Home';
 const App = () => {
-  return ( 
-    <div>
-      <h1>E-education portal</h1>
-    </div>
-   );
-}
- 
+  return <div>
+    <Home />
+  </div>;
+};
+
 export default App;

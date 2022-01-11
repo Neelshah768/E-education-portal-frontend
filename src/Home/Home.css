@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+/*.Home_img{
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+.Home_img img{
+    object-fit: cover;
+}*/
+.background {
+  background-image: url("../Assets/LoginPageBackground.jpg");
+  height: 730px;
+}
+.heading {
+  margin-left: 180px;
+  padding-top: 100px;
+}
+.background h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 80px;
+  color: #305b86;
+}
+.role {
+  font: inherit;
+  font-size: 30px;
+  margin-left: 330px;
+  margin-top: 60px;
+}
+.action {
+  margin-left: 310px;
+}
+.action button {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 250px;
+  margin: 20px 0px;
+  border-radius: 20px;
+  border: 2px solid #16c0b2;
+  font-weight: bold;
+  font-size: 20px;
+  justify-content: center;
+  background: #16c0b2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.action button:hover {
+  background: #305b86;
+  border: 2px solid #305b86;
+  color: white;
+}
