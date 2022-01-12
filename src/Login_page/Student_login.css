@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+
+.studentPortal p{
+  margin: 100px auto 50px auto;
+  width: 90%;
+  max-width: 360px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 50px;
+  color: #1a4d48;
+  font-weight: bold;
+}
+
+.login {
+  width: 90%;
+  margin: auto;
+  max-width: 450px;
+  padding: 20px;
+}
+.login h2 {
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-size: 30px;
+  color: white;
+}
+.login label {
+  font-family: "Ubuntu", sans-serif;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+}
+.login input {
+  border: 1px solid white;
+  width: 25.5rem;
+  padding: 10px;
+  border-radius: 6px;
+  font: inherit;
+}
+.login button {
+  margin-top: 25px;
+  padding: 10px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+}
+.login button:hover,
+.login button:active {
+  background-color: #16c0b2;
+  border: 2px solid #16c0b2;
+  color: white;
+}
+
+@media (max-width: 580px) {
+  .login input {
+    width: 20rem;
+  }
+  .login button:hover,
+  .login button:active {
+    background-color: #16c0b2;
+    border: 1px solid #16c0b2;
+    color: white;
+  }
+}
