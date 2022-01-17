@@ -16,8 +16,8 @@ const Student_login = (props) => {
 
     event.preventDefault();
     let sData = {
-      sID: studentId,
-      sPassword: studentPassword,
+      username: studentId,
+      password: studentPassword,
     };
     try{
       const response = await fetch('https://react-http-767a0-default-rtdb.firebaseio.com/project.json',
@@ -25,8 +25,8 @@ const Student_login = (props) => {
       method: 'POST',
       body: JSON.stringify(sData),
       headers: {
-        'Content-type':'application/json'
-        
+        'Content-type':'application/json',
+        Authorization: 'Token'
       }
     });
     if(!response.ok){
