@@ -4,6 +4,7 @@ import "./Student_login.css";
 const Student_login = (props) => {
   const [studentId, setStudentId] = useState("");
   const [studentPassword, setStudentPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const StudentIdHandler = (event) => {
     setStudentId(event.target.value);
@@ -18,7 +19,9 @@ const Student_login = (props) => {
       sID: studentId,
       sPassword: studentPassword,
     };
-    const response = await fetch('https://react-http-767a0-default-rtdb.firebaseio.com/project.json',{
+    try{
+      const response = await fetch('https://react-http-767a0-default-rtdb.firebaseio.com/project.json',
+      {
       method: 'POST',
       body: JSON.stringify(sData),
       headers: {
@@ -26,9 +29,17 @@ const Student_login = (props) => {
         
       }
     });
+    if(!response.ok){
+      throw new Error('Request Failed');
+    }
 
     const data = await response.json();
-    console.log(data);
+      console.log(data);
+    }catch(err){
+      setError(err.message || 'Something Went Wrong!');
+    }
+    
+    
     
     setStudentId("");
     setStudentPassword("");
@@ -64,6 +75,7 @@ const Student_login = (props) => {
             <button type="submit">Login </button>
           </form>
         </Card>
+        {error && <p>{error}</p>}
       </div>
     </div>
   );
