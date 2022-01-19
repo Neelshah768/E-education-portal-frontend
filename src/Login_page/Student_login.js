@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { Redirect } from "react-router-dom";
 import Card from "../UI/Card";
 import "./Student_login.css";
+
 const Student_login = (props) => {
   const [studentId, setStudentId] = useState("");
   const [studentPassword, setStudentPassword] = useState("");
   const [error, setError] = useState(null);
+  const [token,setToken] = useState('');
 
   const StudentIdHandler = (event) => {
     setStudentId(event.target.value);
@@ -20,13 +23,12 @@ const Student_login = (props) => {
       password: studentPassword,
     };
     try{
-      const response = await fetch('https://react-http-767a0-default-rtdb.firebaseio.com/project.json',
+      const response = await fetch('http://localhost:8000/api/auth/',
       {
       method: 'POST',
       body: JSON.stringify(sData),
       headers: {
-        'Content-type':'application/json',
-        Authorization: 'Token'
+        'Content-type':'application/json'
       }
     });
     if(!response.ok){
@@ -35,6 +37,7 @@ const Student_login = (props) => {
 
     const data = await response.json();
       console.log(data);
+      setToken(data);
     }catch(err){
       setError(err.message || 'Something Went Wrong!');
     }
@@ -76,6 +79,7 @@ const Student_login = (props) => {
           </form>
         </Card>
         {error && <p>{error}</p>}
+        {token && <Redirect to= "/student"></Redirect>}
       </div>
     </div>
   );
