@@ -23,7 +23,7 @@
 }
 #active{
     background-color: #13273b;
-    border-left: 5px solid #16c0b2;
+    border-left: 5px solid #16c0b2; 
 }
 .row #icon{
     flex: 30%;

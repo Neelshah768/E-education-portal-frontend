@@ -8,7 +8,7 @@ export const SideBarData = [
     {
         title:"My Profile",
         icon: <AccountBoxIcon />,
-        link: '/myprofile'
+        link: '/studentProfile'
     },
     {
         title:"Home",

@@ -4,7 +4,7 @@ import StudentLogin from "./Login_page/Student_login";
 import FacultyLogin from "./Login_page/Faculty_login";
 import AdminLogin from "./Login_page/Admin_login";
 import Student_Portal from "./Student/Student_Portal";
-import MyProfile from "./Student/MyProfile";
+import MyProfile from "./Student/StudentProfile";
 const App = () => {
   return (
     <div>
@@ -14,7 +14,7 @@ const App = () => {
         <Route exact path="/facultylogin.js" component={FacultyLogin}></Route>
         <Route exact path="/AdminLogin.js" component={AdminLogin}></Route>
         <Route exact path="/student" component={Student_Portal}></Route>
-        <Route exact path="/myprofile" component={MyProfile}></Route>
+        <Route exact path="/studentProfile" component={MyProfile}></Route>
       </Switch>
     </div>
   );
