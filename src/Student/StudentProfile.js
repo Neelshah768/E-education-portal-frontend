@@ -11,24 +11,39 @@ const MyProfile = (props) => {
   useEffect(() => {
     const fetchStudentData = async () => {
       const response = await fetch(
-        "https://react-http-767a0-default-rtdb.firebaseio.com/StudentData.json"
+        "http://localhost:8000/api/studentprofile/",
+        {
+        headers:{
+        Authorization: 'Token ' + localStorage.getItem("user-token")
+        }
+        }
       );
 
       if (!response.ok) {
         throw new Error("Somethig Went Wrong!");
       }
       const data = await response.json();
+      console.log(data);
 
-      const loadedStudentData = [];
+     const loadedStudentData = [];
 
-      for (const key in data) {
-        loadedStudentData.push({
-          id: key,
-          name: data[key].UserName,
-          email: data[key].email,
-          semester: data[key].Semester,
-        });
-      }
+      
+       loadedStudentData.push({
+         id: 1,
+         fname: data.first_name,
+         lname:data.last_name,
+         designation:data.designation,
+         DOB:data.date_of_birth,
+         gender:data.gender,
+         smobile:data.s_mobile,
+         pmobile:data.p_mobile,
+         email: data.email,
+         course:data.course,
+         bname:data.branch_name,
+         semester: data.Semester,
+         image:data.image
+       });
+     
       console.log(loadedStudentData);
       setStudentData(loadedStudentData);
     };
@@ -41,9 +56,18 @@ const MyProfile = (props) => {
     <StudentProfileList
       id={sData.id}
       key={sData.id}
-      name={sData.name}
+      fname={sData.fname}
+      lname={sData.lname}
+      designation={sData.designation}
+      DOB={sData.DOB}
+      gender={sData.gender}
+      smobile={sData.smobile}
+      pmobile={sData.pmobile}
       email={sData.email}
+      course={sData.course}
+      bname={sData.bname}
       semester={sData.semester}
+      image={sData.image}
     />
   ));
 

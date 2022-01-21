@@ -7,7 +7,7 @@ const Student_login = (props) => {
   const [studentId, setStudentId] = useState("");
   const [studentPassword, setStudentPassword] = useState("");
   const [error, setError] = useState(null);
-  const [token,setToken] = useState('');
+  const [token, setToken] = useState("");
 
   const StudentIdHandler = (event) => {
     setStudentId(event.target.value);
@@ -16,34 +16,33 @@ const Student_login = (props) => {
     setStudentPassword(event.target.value);
   };
   async function studentSubmitHandler(event) {
-
     event.preventDefault();
     let sData = {
       username: studentId,
       password: studentPassword,
     };
-    try{
-      const response = await fetch('http://localhost:8000/api/auth/',
-      {
-      method: 'POST',
-      body: JSON.stringify(sData),
-      headers: {
-        'Content-type':'application/json'
+    try {
+      const response = await fetch("http://localhost:8000/api/auth/", {
+        method: "POST",
+        body: JSON.stringify(sData),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Request Failed");
       }
-    });
-    if(!response.ok){
-      throw new Error('Request Failed');
-    }
 
-    const data = await response.json();
+      const data = await response.json();
+
       console.log(data);
       setToken(data);
-    }catch(err){
-      setError(err.message || 'Something Went Wrong!');
+      localStorage.setItem("user-token",data["token"]);
+
+    } catch (err) {
+      setError(err.message || "Something Went Wrong!");
     }
-    
-    
-    
+
     setStudentId("");
     setStudentPassword("");
   }
@@ -79,7 +78,7 @@ const Student_login = (props) => {
           </form>
         </Card>
         {error && <p>{error}</p>}
-        {token && <Redirect to= "/student"></Redirect>}
+        {token && <Redirect to="/student"></Redirect>}
       </div>
     </div>
   );
