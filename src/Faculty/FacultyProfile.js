@@ -1,18 +1,16 @@
 import SideBar from "./SideBar";
+import Card from '../UI/Card';
 import { useEffect, useState } from "react";
-import Card from "../UI/Card";
-import "./StudentProfile.css";
-import StudentProfileList from "./StudentProfileList";
-
-
-const StudentProfile = (props) => {
-  const [studentData, setStudentData] = useState([]);
+import FacultyProfileList from './FacultyProfileList';
+const FacultyProfile = (props) => {
+    
+  const [facultyData, setFacultyData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchStudentData = async () => {
+    const fetchFacultyData = async () => {
       const response = await fetch(
-        "http://localhost:8000/api/studentprofile/",
+        "http://localhost:8000/api/teacherprofile/",
         {
         headers:{
         Authorization: 'Token ' + localStorage.getItem("user-token")
@@ -36,25 +34,24 @@ const StudentProfile = (props) => {
          designation:data.designation,
          DOB:data.date_of_birth,
          gender:data.gender,
-         smobile:data.s_mobile,
-         pmobile:data.p_mobile,
+         mobile:data.t_mobile,
          email: data.email,
-         course:data.course,
          bname:data.branch_name,
-         semester: data.Semester,
+         knowladge:data.field_of_knowledge,
+         DOJ:data.joining_date,
+         salary:data.salary,
          image:data.image
        });
      
       console.log(loadedStudentData);
-      setStudentData(loadedStudentData);
+      setFacultyData(loadedStudentData);
     };
-    fetchStudentData().catch((error) => {
+    fetchFacultyData().catch((error) => {
       setError(error.message);
     });
   }, []);
-
-  const dataList = studentData.map((sData) => (
-    <StudentProfileList
+  const dataList = facultyData.map((sData) => (
+    <FacultyProfileList
       id={sData.id}
       key={sData.id}
       fname={sData.fname}
@@ -62,19 +59,20 @@ const StudentProfile = (props) => {
       designation={sData.designation}
       DOB={sData.DOB}
       gender={sData.gender}
-      smobile={sData.smobile}
-      pmobile={sData.pmobile}
+      mobile={sData.mobile}
       email={sData.email}
-      course={sData.course}
       bname={sData.bname}
-      semester={sData.semester}
+      knowladge={sData.knowladge}
+      DOJ={sData.salary}
+      salary={sData.salary}
       image={sData.image}
     />
   ));
     
+
   return (
     <div className="profile">
-      {error && <p>{error.message}</p>}
+        {error && <p>{error.message}</p>}
       <div className="sidebar">
         <SideBar />
       </div>
@@ -87,4 +85,4 @@ const StudentProfile = (props) => {
   );
 };
 
-export default StudentProfile;
+export default FacultyProfile;

@@ -1,5 +1,19 @@
+.home_page{
+    display: flex;
+    
+}
 .sidebar{
     height: 774px;
     width: 300px;
     background-color: #305b86;
+        
+}
+.images img{
+    height: 775px;
+    width: 1280px;
+    
+}
+.images img:hover{
+    opacity: 0.5;
+    transition-duration: 3s;
 }

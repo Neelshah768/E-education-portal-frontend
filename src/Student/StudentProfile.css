@@ -1,10 +1,12 @@
 .profile{
     display: flex;
+    background:linear-gradient(#16c0b2,white,white)
 }
 .sidebar{
     height: 774px;
     width: 300px;
     background-color: #305b86;
+    cursor: pointer;
 }
 .sprofile{
     margin: 150px 350px;
@@ -15,4 +17,19 @@
     background-color: white;
     border: 2px solid black;
 
+}
+@media (max-width: 580px){
+    .profile{
+        display: block;
+        background: white;
+    }
+    .sidebar{
+        height: 320px;
+        min-width: 100%;
+        background-color: #305b86;        
+    }
+    .sprofile{
+        margin: 100px 20px;
+        height: 650px;
+    }
 }

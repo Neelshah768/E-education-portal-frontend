@@ -1,10 +1,12 @@
 import Card from "../UI/Card";
 import { useState } from "react";
+import { Redirect } from "react-router-dom";
 import "./Faculty_login.css";
 const Faculty_login = (props) => {
   const [facultyId, setFacultyId] = useState("");
   const [facultyPassword, setFacultyPassword] = useState("");
   const [error, setError] = useState(null);
+  const [token, setToken] = useState("");
 
   const FacultyIdHandler = (event) => {
     setFacultyId(event.target.value);
@@ -20,13 +22,12 @@ const Faculty_login = (props) => {
     };
     try {
       const response = await fetch(
-        "https://react-http-767a0-default-rtdb.firebaseio.com/project.json",
+        "http://localhost:8000/api/auth/",
         {
           method: "POST",
           body: JSON.stringify(fData),
           headers: {
             "Content-type": "application/json",
-            Authorization: "Token",
           },
         }
       );
@@ -36,6 +37,8 @@ const Faculty_login = (props) => {
 
       const data = await response.json();
       console.log(data);
+      setToken(data);
+      localStorage.setItem("user-token", data["token"]);
     } catch (err) {
       setError(err.message || "Something Went Wrong!");
     }
@@ -75,6 +78,7 @@ const Faculty_login = (props) => {
           </form>
         </Card>
         {error && <p>{error}</p>}
+        {token && <Redirect to="/faculty"></Redirect>}
       </div>
     </div>
   );
