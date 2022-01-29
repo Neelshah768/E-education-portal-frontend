@@ -1,0 +1,21 @@
+.button {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid #24507a;
+    background: #24507a;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover,
+  .button:active {
+    background: #1b6db9;
+    border-color: #1b6db9;
+  }
+  
+  .button:focus {
+    outline: none;
+  }

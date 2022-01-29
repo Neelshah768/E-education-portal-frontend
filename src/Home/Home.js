@@ -1,5 +1,5 @@
 import "./Home.css";
-import {Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Home = (props) => {
 
@@ -18,7 +18,7 @@ const Home = (props) => {
       <div className="action">
         <Link to = "/studentlogin.js" className="action_link">Student</Link>
         <Link to = '/facultylogin.js' className="action_link">Faculty</Link>
-        <Link to = '/AdminLogin.js' className="action_link">Admin</Link>
+        <a href="http://localhost:8000/admin" className="action_link"> Admin</a>
       </div>
       
     </div>

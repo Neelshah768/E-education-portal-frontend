@@ -1,19 +1,36 @@
-.home_page{
-    display: flex;
-    
+.home_page {
+  display: flex;
 }
-.sidebar{
-    height: 774px;
-    width: 300px;
+.sidebar {
+  height: 774px;
+  width: 300px;
+  background-color: #305b86;
+  position: fixed;
+}
+.images img {
+  position: fixed;
+  height: 775px;
+  width: 1280px;
+  margin-left: 300px;
+}
+.images img:hover {
+  opacity: 0.5;
+  transition-duration: 3s;
+}
+@media (max-width: 580px) {
+  .home_page {
+    display: block;
+  }
+  .sidebar {
+    height: 320px;
+    min-width: 100%;
     background-color: #305b86;
-        
-}
-.images img{
-    height: 775px;
-    width: 1280px;
+  }
+  .images img {
     
-}
-.images img:hover{
+  }
+  .images img:hover {
     opacity: 0.5;
     transition-duration: 3s;
+  }
 }

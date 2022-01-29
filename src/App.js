@@ -5,6 +5,7 @@ import FacultyLogin from "./Login_page/Faculty_login";
 import AdminLogin from "./Login_page/Admin_login";
 import Student_Portal from "./Student/Student_Portal";
 import StudentProfile from "./Student/StudentProfile";
+import SubjectList from './Student/SubjectList';
 import Faculty_Portal from './Faculty/Faculty_Portal';
 import FacultyProfile from "./Faculty/FacultyProfile";
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path="/AdminLogin.js" component={AdminLogin}></Route>
         <Route exact path="/student" component={Student_Portal}></Route>
         <Route exact path="/studentProfile" component={StudentProfile}></Route>
+        <Route exact path="/studentclass" component={SubjectList}></Route>
         <Route exact path="/faculty" component={Faculty_Portal}></Route>
         <Route exact path="/facultyprofile" component={FacultyProfile}></Route>
       </Switch>

@@ -45,6 +45,9 @@
   border: 2px solid #305b86;
   color: white;
 }
+.action a{
+  
+}
 @media(max-width:580px){
   .background{
     background: none;

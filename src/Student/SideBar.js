@@ -1,9 +1,11 @@
 import { SideBarData } from "./SideBarData";
 import "./SideBar.css";
-function SideBar() {
+function SideBar(props) {
   return (
     <div>
+      
       <ul className="SidebarList">
+      
         {SideBarData.map((val, key) => {
           return (
             <li
@@ -14,6 +16,7 @@ function SideBar() {
                 window.location.pathname = val.link;
               }}
             >
+              
               <div id="icon">{val.icon}</div>
               <div id="title">{val.title}</div>
             </li>

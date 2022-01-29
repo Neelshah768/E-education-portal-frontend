@@ -37,7 +37,7 @@ const FacultyProfile = (props) => {
          mobile:data.t_mobile,
          email: data.email,
          bname:data.branch_name,
-         knowladge:data.field_of_knowledge,
+         knowledge:data.field_of_knowledge,
          DOJ:data.joining_date,
          salary:data.salary,
          image:data.image
@@ -62,7 +62,7 @@ const FacultyProfile = (props) => {
       mobile={sData.mobile}
       email={sData.email}
       bname={sData.bname}
-      knowladge={sData.knowladge}
+      knowledge={sData.knowledge}
       DOJ={sData.salary}
       salary={sData.salary}
       image={sData.image}

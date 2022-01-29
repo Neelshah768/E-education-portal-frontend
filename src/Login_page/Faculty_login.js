@@ -22,7 +22,7 @@ const Faculty_login = (props) => {
     };
     try {
       const response = await fetch(
-        "http://localhost:8000/api/auth/",
+        "http://localhost:8000/api/auth/teacher/",
         {
           method: "POST",
           body: JSON.stringify(fData),

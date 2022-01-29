@@ -18,7 +18,7 @@ export const SideBarData = [
     {
         title:"My ClassRoom",
         icon: <ClassIcon />,
-        link: '/myclassroom'
+        link: '/studentclass'
     },
     {
         title:"Join a Class",

@@ -4,7 +4,6 @@ import Card from "../UI/Card";
 import "./StudentProfile.css";
 import StudentProfileList from "./StudentProfileList";
 
-
 const StudentProfile = (props) => {
   const [studentData, setStudentData] = useState([]);
   const [error, setError] = useState(null);
@@ -14,9 +13,9 @@ const StudentProfile = (props) => {
       const response = await fetch(
         "http://localhost:8000/api/studentprofile/",
         {
-        headers:{
-        Authorization: 'Token ' + localStorage.getItem("user-token")
-        }
+          headers: {
+            Authorization: "Token " + localStorage.getItem("user-token"),
+          },
         }
       );
 
@@ -24,28 +23,26 @@ const StudentProfile = (props) => {
         throw new Error("Somethig Went Wrong!");
       }
       const data = await response.json();
-      console.log(data);
 
-     const loadedStudentData = [];
+      const loadedStudentData = [];
+
+      loadedStudentData.push({
+        id: 1,
+        fname: data.first_name,
+        lname: data.last_name,
+        designation: data.designation,
+        DOB: data.date_of_birth,
+        gender: data.gender,
+        smobile: data.s_mobile,
+        pmobile: data.p_mobile,
+        email: data.email,
+        course: data.course,
+        bname: data.branch_name,
+        semester: data.Semester,
+        image: data.image,
+      });
 
       
-       loadedStudentData.push({
-         id: 1,
-         fname: data.first_name,
-         lname:data.last_name,
-         designation:data.designation,
-         DOB:data.date_of_birth,
-         gender:data.gender,
-         smobile:data.s_mobile,
-         pmobile:data.p_mobile,
-         email: data.email,
-         course:data.course,
-         bname:data.branch_name,
-         semester: data.Semester,
-         image:data.image
-       });
-     
-      console.log(loadedStudentData);
       setStudentData(loadedStudentData);
     };
     fetchStudentData().catch((error) => {
@@ -71,7 +68,7 @@ const StudentProfile = (props) => {
       image={sData.image}
     />
   ));
-    
+
   return (
     <div className="profile">
       {error && <p>{error.message}</p>}

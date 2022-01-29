@@ -4,18 +4,18 @@ const StudentProfileList = (props) => {
     <div className="StudentProfile">
       <img src={props.image} alt="studentprofilepic"></img>
 
-      <h3>
-        Name:- {props.fname} {props.lname}
+      <h3><b>Name:- </b>
+         {props.fname} {props.lname}
       </h3>
-      <h3>Designation:- {props.designation}</h3>
-      <h3>Date of Birth:-{props.DOB}</h3>
-      <h3>Gender:- {props.gender}</h3>
-      <h3>Mobile Number:- {props.mobile}</h3>
-      <h3>Email:- {props.email}</h3>
-      <h3>Branch Name:- {props.bname}</h3>
-      <h3>knowladge:- {props.knowledge}</h3>
-      <h3>Date of Joining:- {props.DOJ}</h3>
-      <h3>Salary:- {props.salary}</h3>
+      <h3><b>Designation:- </b>{props.designation}</h3>
+      <h3><b>Date of Birth:- </b>{props.DOB}</h3>
+      <h3><b>Gender:- </b> {props.gender}</h3>
+      <h3><b>Mobile Number:- </b> {props.mobile}</h3>
+      <h3><b>Email:- </b> {props.email}</h3>
+      <h3><b>Branch Name:- </b> {props.bname}</h3>
+      <h3><b>knowladge:- </b> {props.knowledge}</h3>
+      <h3><b>Date of Joining:- </b> {props.DOJ}</h3>
+      <h3><b>Salary:-</b> {props.salary}</h3>
       
     </div>
   );

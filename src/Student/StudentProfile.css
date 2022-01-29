@@ -1,6 +1,7 @@
 .profile{
     display: flex;
-    background:linear-gradient(#16c0b2,white,white)
+    background:linear-gradient(#16c0b2,white,white);
+    position: fixed;
 }
 .sidebar{
     height: 774px;
@@ -9,7 +10,7 @@
     cursor: pointer;
 }
 .sprofile{
-    margin: 150px 350px;
+    margin: 150px 670px;
     width: 90%;
     max-width: 550px;
     height: 500px;

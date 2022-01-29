@@ -1,0 +1,10 @@
+.subject_list{
+    display: flex;
+}
+.sidebar{
+    position: fixed;
+    height: 774px;
+    width: 300px;
+    background-color: #305b86;
+        
+}

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import Card from "../UI/Card";
+import ErrorModal from "../UI/ErrorModal";
 import "./Student_login.css";
 
 const Student_login = (props) => {
   const [studentId, setStudentId] = useState("");
   const [studentPassword, setStudentPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState();
   const [token, setToken] = useState("");
 
   const StudentIdHandler = (event) => {
@@ -17,12 +18,20 @@ const Student_login = (props) => {
   };
   async function studentSubmitHandler(event) {
     event.preventDefault();
+    if (studentId.trim().length === 0 || studentPassword.trim().length === 0) {
+      setError({
+        title: "Invalid Input",
+        message:
+          "Please enter a valid UserName and Password(non-empty values).",
+      });
+      setToken("");
+    }
     let sData = {
       username: studentId,
       password: studentPassword,
     };
     try {
-      const response = await fetch("http://localhost:8000/api/auth/", {
+      const response = await fetch("http://localhost:8000/api/auth/student/", {
         method: "POST",
         body: JSON.stringify(sData),
         headers: {
@@ -30,15 +39,19 @@ const Student_login = (props) => {
         },
       });
       if (!response.ok) {
-        throw new Error("Request Failed");
+        setError({
+          title: "Invalid Input",
+          message:
+            "Please enter a valid UserName and Password(non-empty values).",
+        });
+        setToken("");
+      } else {
+        const data = await response.json();
+
+        console.log(data);
+        setToken(data);
+        localStorage.setItem("user-token", data["token"]);
       }
-
-      const data = await response.json();
-
-      console.log(data);
-      setToken(data);
-      localStorage.setItem("user-token",data["token"]);
-
     } catch (err) {
       setError(err.message || "Something Went Wrong!");
     }
@@ -46,8 +59,18 @@ const Student_login = (props) => {
     setStudentId("");
     setStudentPassword("");
   }
+  const errorHandler = () => {
+    setError(null);
+  };
   return (
     <div>
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
       <div className="studentPortal">
         <p>Student Portal</p>
       </div>
@@ -62,7 +85,6 @@ const Student_login = (props) => {
               placeholder="Enter your login Id"
               onChange={StudentIdHandler}
               value={studentId}
-              required
             ></input>
 
             <label htmlFor="Password">Password:- </label>
@@ -72,12 +94,11 @@ const Student_login = (props) => {
               placeholder="Enter your Password"
               onChange={StudentPasswordHandler}
               value={studentPassword}
-              required
             ></input>
             <button type="submit">Login </button>
           </form>
         </Card>
-        {error && <p>{error}</p>}
+
         {token && <Redirect to="/student"></Redirect>}
       </div>
     </div>
