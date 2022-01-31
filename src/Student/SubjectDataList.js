@@ -5,11 +5,10 @@ const SubjectDataList = (props) => {
     <div className="subjectData">
       <div className="s_list">
         <img src={props.subject_photo} alt="profile"></img>
-         <h3>Subject Name:- {props.subject_name}</h3>
-         <h3>Credit:- {props.subject_credits}</h3>
-        <h3>Subject-Teacher:- 
-          {props.teacher_first_name} {props.teacher_last_name}
-        </h3>
+         <h3><b>Subject Code:-</b> {props.subject_code}</h3>
+         <h3><b>Subject Name:-</b> {props.subject_name}</h3>
+         <h3><b>Credit:-</b> {props.subject_credits}</h3>
+        
         <button>Show More</button>
       </div>
     </div>

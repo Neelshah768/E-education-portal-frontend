@@ -28,10 +28,9 @@ const SubjectList = (props) => {
       for (const key in data) {
         loadedSubjectData.push({
           id: key,
+          subject_code:data[key].subject_code,
           subject_credits: data[key].subject_credits,
-          subject_name: data[key].subjet_name,
-          teacher_first_name: data[key].teacher_first_name,
-          teacher_last_name: data[key].teacher_last_name,
+          subject_name: data[key].subject_name,
           subject_photo:data[key].subject_photo
         });
       }
@@ -46,10 +45,9 @@ const SubjectList = (props) => {
     <SubjectDataList
       id={sList.id}
       key={sList.id}
+      subject_code={sList.subject_code}
       subject_credits={sList.subject_credits}
       subject_name={sList.subject_name}
-      teacher_first_name={sList.teacher_first_name}
-      teacher_last_name={sList.teacher_last_name}
       subject_photo={sList.subject_photo}
     />
   ));

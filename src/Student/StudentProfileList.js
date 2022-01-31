@@ -9,11 +9,11 @@ const StudentProfileList = (props) => {
                 <h3><b>Date of Birth:-</b>{props.DOB}</h3>
                 <h3><b>Gender:-</b> {props.gender}</h3>
                 <h3><b>Student Mobile Number:-</b> {props.smobile}</h3>
-                <h3><b>Parent Mobile Number:-</b> {props.pmobile}</h3>
+                <h3><b>Parent's Mobile Number:-</b> {props.pmobile}</h3>
                 <h3><b>Email:-</b> {props.email}</h3>
                 <h3><b>Course:-</b> {props.course}</h3>
                 <h3><b>Branch Name:-</b> {props.bname}</h3>
-                <h3><b>Semester:-</b> {props.semester}</h3>
+                <h3><b>Current Semester:-</b> {props.semester}</h3>
                 
             
         </div>

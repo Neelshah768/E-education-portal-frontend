@@ -2,6 +2,8 @@ import Card from "../UI/Card";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./Faculty_login.css";
+import ErrorModal from "../UI/ErrorModal";
+
 const Faculty_login = (props) => {
   const [facultyId, setFacultyId] = useState("");
   const [facultyPassword, setFacultyPassword] = useState("");
@@ -16,29 +18,39 @@ const Faculty_login = (props) => {
   };
   async function facultySubmitHandler(event) {
     event.preventDefault();
+    if (facultyId.trim().length === 0 || facultyPassword.trim().length === 0) {
+      setError({
+        title: "Invalid Input",
+        message:
+          "Please enter a valid UserName and Password(non-empty values).",
+      });
+      setToken("");
+    }
     let fData = {
       username: facultyId,
       password: facultyPassword,
     };
     try {
-      const response = await fetch(
-        "http://localhost:8000/api/auth/teacher/",
-        {
-          method: "POST",
-          body: JSON.stringify(fData),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
+      const response = await fetch("http://localhost:8000/api/auth/teacher/", {
+        method: "POST",
+        body: JSON.stringify(fData),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
       if (!response.ok) {
-        throw new Error("Request Failed");
+        setError({
+          title: "Invalid Input",
+          message:
+            "Please enter a valid UserName and Password(non-empty values).",
+        });
+        setToken("");
+      } else {
+        const data = await response.json();
+        console.log(data);
+        setToken(data);
+        localStorage.setItem("user-token", data["token"]);
       }
-
-      const data = await response.json();
-      console.log(data);
-      setToken(data);
-      localStorage.setItem("user-token", data["token"]);
     } catch (err) {
       setError(err.message || "Something Went Wrong!");
     }
@@ -46,8 +58,18 @@ const Faculty_login = (props) => {
     setFacultyId("");
     setFacultyPassword("");
   }
+  const errorHandler = () => {
+    setError(null);
+  };
   return (
     <div>
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
       <div className="facultyPortal">
         <p>Faculty Portal</p>
       </div>
@@ -62,7 +84,6 @@ const Faculty_login = (props) => {
               placeholder="Enter your login Id"
               onChange={FacultyIdHandler}
               value={facultyId}
-              required
             ></input>
 
             <label htmlFor="Password">Password:- </label>
@@ -72,12 +93,11 @@ const Faculty_login = (props) => {
               placeholder="Enter your Password"
               onChange={FacultyPasswordHandler}
               value={facultyPassword}
-              required
             ></input>
             <button type="submit">Login </button>
           </form>
         </Card>
-        {error && <p>{error}</p>}
+
         {token && <Redirect to="/faculty"></Redirect>}
       </div>
     </div>

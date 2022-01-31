@@ -47,7 +47,6 @@ const Student_login = (props) => {
         setToken("");
       } else {
         const data = await response.json();
-
         console.log(data);
         setToken(data);
         localStorage.setItem("user-token", data["token"]);

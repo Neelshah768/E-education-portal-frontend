@@ -63,7 +63,7 @@ const FacultyProfile = (props) => {
       email={sData.email}
       bname={sData.bname}
       knowledge={sData.knowledge}
-      DOJ={sData.salary}
+      DOJ={sData.DOJ}
       salary={sData.salary}
       image={sData.image}
     />

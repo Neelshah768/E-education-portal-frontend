@@ -1,6 +1,6 @@
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import HomeIcon from '@mui/icons-material/Home';
-import ClassIcon from '@mui/icons-material/Class';
+import SubjectIcon from '@mui/icons-material/Subject';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -16,8 +16,8 @@ export const SideBarData = [
         link:'/student'
     },
     {
-        title:"My ClassRoom",
-        icon: <ClassIcon />,
+        title:"My Subjects",
+        icon: <SubjectIcon />,
         link: '/studentclass'
     },
     {
