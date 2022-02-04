@@ -1,35 +1,85 @@
-.SidebarList{
-    height: auto;
-    width: 100%;
-    padding: 0;
-}
-.row{
-    width: 100%;
-    height: 60px;
-    list-style-type: none;
-    margin: 0%;
-    display: flex;
-    flex-direction: row;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Times New Roman', Times, serif;
-}
-.row:hover{
+#sidebar {
+    position: absolute;
+    width: 300px;
+  }
+  #sidebar .pro-sidebar {
+    height: 100vh;
+  }
+  #sidebar .closemenu {
+    color: #000;
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    line-height: 20px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 22px;
+    top: 55px;
     cursor: pointer;
-    background-color: #13273b;
-    border-left: 5px solid #16c0b2;
-}
-#active{
-    background-color: #13273b;
-    border-left: 5px solid #16c0b2; 
-}
-
-.row #icon{
-    flex: 30%;
-    display: grid;
-    place-items: center;
-}
-.row #title{
-    flex: 70%;
-}
+    margin-right: 10px;
+    
+  }
+  #sidebar .pro-sidebar {
+    width: 100%;
+    min-width: 100%;
+  }
+  #sidebar .pro-sidebar.collapsed {
+    width: 80px;
+    min-width: 80px;
+  }
+  #sidebar .pro-sidebar-inner {
+    background-color: white;
+    box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout {
+    overflow-y: hidden;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout .logotext p {
+    font-size: 20px;
+    padding: 10px 20px;
+    color: #000;
+    font-weight: bold;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul {
+    padding: 0 5px;
+    margin: 20px 0px;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul :hover{
+    background-image: linear-gradient(0deg, #1c64ad 0%, #175ca1 100%);
+    border-radius: 10px;
+    
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
+    color: #000;
+    margin: 10px 0px;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper {
+    background-color: #11d1eb;
+    color: #03386d;
+    border-radius: 5px;
+  }
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper .pro-item-content {
+    color: #000;
+  }
+  
+  #sidebar .pro-sidebar-inner .pro-sidebar-layout .active {
+    background-image: linear-gradient(0deg, #1c64ad 0%, #175ca1 100%);
+    border-radius: 10px;
+    
+  }
+  
+  
+  #sidebar .logo {
+    padding: 20px;
+  }
+  
+  @media only screen and (max-width: 720px) {
+    html {
+      overflow: hidden;
+    }
+  }

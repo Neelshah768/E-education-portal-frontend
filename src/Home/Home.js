@@ -19,6 +19,7 @@ const Home = (props) => {
         <Link to = "/studentlogin.js" className="action_link">Student</Link>
         <Link to = '/facultylogin.js' className="action_link">Faculty</Link>
         <a href="http://localhost:8000/admin" className="action_link"> Admin</a>
+        
       </div>
       
     </div>

@@ -50,6 +50,7 @@ const Faculty_login = (props) => {
         console.log(data);
         setToken(data);
         localStorage.setItem("user-token", data["token"]);
+        
       }
     } catch (err) {
       setError(err.message || "Something Went Wrong!");
