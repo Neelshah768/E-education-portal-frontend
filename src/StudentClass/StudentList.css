@@ -1,0 +1,11 @@
+.studentList{
+    display: flex;
+}
+.studentList p{
+    padding: 5px;
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+}

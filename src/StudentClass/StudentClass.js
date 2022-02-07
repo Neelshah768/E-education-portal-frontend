@@ -1,12 +1,13 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
+import StudentList from "./StudentList";
+import "./StudentClass.css";
 
 const StudentClass = (props) => {
   const [studentList, setStudentList] = useState([]);
   const [error, setError] = useState();
 
-  let subjectCode = 
-  {subject_code:localStorage.getItem("subject-code")};
-  useEffect(async()=>{
+  let subjectCode = { subject_code: localStorage.getItem("subject-code") };
+  useEffect(async () => {
     try {
       const response = await fetch(
         "http://localhost:8000/api/teachersubjectstudentlist/",
@@ -40,10 +41,32 @@ const StudentClass = (props) => {
     } catch (err) {
       setError(err.message || "Something Went Wrong!");
     }
-  },[]);
-  return ( 
-    <div></div>
-   );
-}
- 
+  }, []);
+  const listStudent = studentList.map((sList) => (
+    <StudentList
+      id={sList.id}
+      key={sList.id}
+      student_id={sList.student_id}
+      student_first_name={sList.student_first_name}
+      student_last_name={sList.student_last_name}
+      student_email={sList.student_email}
+    />
+  ));
+
+  return (
+    <div>
+      <div>{error && <p>{error.message}</p>}</div>
+      <div className="studentClass">
+        <p>Student ID</p>
+        <p>Student Name</p>
+        <p>Student Email</p>
+      </div>
+      <div>
+        {listStudent}
+      </div>
+     
+    </div>
+  );
+};
+
 export default StudentClass;
