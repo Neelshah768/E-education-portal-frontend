@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import StudentList from "./StudentList";
 import "./StudentClass.css";
+import AddAsignment from "./AddAsignment";
 
 const StudentClass = (props) => {
   const [studentList, setStudentList] = useState([]);
@@ -55,6 +56,7 @@ const StudentClass = (props) => {
 
   return (
     <div>
+      <div><AddAsignment /></div>
       <div>{error && <p>{error.message}</p>}</div>
       <div className="studentClass">
         <p>Student ID</p>

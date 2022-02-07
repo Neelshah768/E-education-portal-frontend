@@ -1,0 +1,69 @@
+#assignment {
+  position: absolute;
+  width: 300px;
+}
+#assignment .pro-sidebar {
+  height: 100vh;
+}
+#assignment .closemenu {
+  color: #000;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+  line-height: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 22px;
+  top: 55px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+#assignment .pro-sidebar {
+  width: 100%;
+  min-width: 100%;
+}
+#assignment .pro-sidebar.collapsed {
+  width: 80px;
+  min-width: 80px;
+}
+#assignment .pro-sidebar-inner {
+  background-color: white;
+  box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
+}
+#assignment .pro-sidebar-inner .pro-sidebar-layout {
+  overflow-y: hidden;
+}
+#assignment .pro-sidebar-inner .pro-sidebar-layout .logotext p {
+  font-size: 20px;
+  padding: 10px 20px;
+  color: #000;
+  font-weight: bold;
+}
+#assignment .pro-sidebar-inner .pro-sidebar-layout form{
+  padding: 10px 5px;
+  margin: 10px 8px;
+  background-image: linear-gradient(0deg, #1c64ad 0%, #175ca1 100%);
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+#assignment .pro-sidebar-inner .pro-sidebar-layout form input{
+  margin: 10px;
+  font: inherit;
+  margin-left: 15px;
+}
+#assignment .pro-sidebar-inner .pro-sidebar-layout form button{
+  padding: 5px;
+  width: 150px;
+  margin-left: 33px;
+  background-color: #11d1eb;
+  border: 1px solid #11d1eb;
+  border-radius: 10px;
+  font: inherit;
+}
+#assignment .pro-sidebar-inner .pro-sidebar-layout form button:hover{
+  background-color: #0ad1ebc4;
+  border: 1px solid #0ad1ebc4;
+  color: white;
+}

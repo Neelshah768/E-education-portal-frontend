@@ -28,6 +28,9 @@ const SideBar = () => {
   const menuIconClick = () => {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
+  const logoutHandler=()=>{
+    localStorage.clear();
+  }
 
   return (
     <>
@@ -65,7 +68,9 @@ const SideBar = () => {
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-              <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+              <MenuItem icon={<FiLogOut />}>
+                <Link to="/facultylogin.js" onClick={logoutHandler}>Log out</Link>
+              </MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>
