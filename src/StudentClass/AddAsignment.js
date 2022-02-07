@@ -25,24 +25,25 @@ const AddAsignment = (props) => {
   const fileChangeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
   };
-  const FormSubmitHandler = (event) => {
+  const FormSubmitHandler = async (event) => {
+    event.preventDefault();
     console.log("file");
     console.log(selectedFile);
-    useEffect(async () => {
-      const response = await fetch(
-        "http://localhost:8000/api/teachersubjectstudentlist/",
-        {
-          method: "POST",
-          body: JSON.stringify(selectedFile),
-          headers: {
-            Authorization: "Token " + localStorage.getItem("user-token"),
-            "Content-type": "application/json",
-          },
-        }
-      );
-      const data = await response.json();
-    });
+
+    const response = await fetch(
+      "http://localhost:8000/api/teachersubjectstudentlist/",
+      {
+        method: "POST",
+        body: JSON.stringify(selectedFile),
+        headers: {
+          Authorization: "Token " + localStorage.getItem("user-token"),
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
   };
+
   return (
     <>
       <div id="assignment">
@@ -63,9 +64,11 @@ const AddAsignment = (props) => {
           <SidebarFooter>
             <Menu iconShape="square">
               <MenuItem>
-                <form onSubmit={FormSubmitHandler}>
+                <form>
                   <input type="file" onChange={fileChangeHandler} />
-                  <button type="Submit">Submit</button>
+                  <button type="Submit" onClick={FormSubmitHandler}>
+                    Submit
+                  </button>
                 </form>
               </MenuItem>
             </Menu>
