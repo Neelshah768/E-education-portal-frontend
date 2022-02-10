@@ -8,7 +8,7 @@ const Faculty_Portal = (props) => {
       <div className="fsidebar">
       <SideBar />
       </div>
-      <div className="corousel">
+      <div className="fcorousel">
         <Fcorousel />
       </div>
     </div>
