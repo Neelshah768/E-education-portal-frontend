@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   ProSidebar,
   Menu,
@@ -14,6 +14,7 @@ import {
 } from "react-icons/bs";
 import "./AddAsignment.css";
 import "react-pro-sidebar/dist/css/styles.css";
+import AsignmentList from "./AsignmentList";
 
 const AddAsignment = (props) => {
   const [menuCollapse, setMenuCollapse] = useState(false);
@@ -27,22 +28,24 @@ const AddAsignment = (props) => {
   };
   const FormSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log("file");
+    console.log(selectedFile.name);
     console.log(selectedFile);
 
     const response = await fetch(
-      "http://localhost:8000/api/teachersubjectstudentlist/",
+      "http://localhost:8000/api/teacherassignmentfileupload/",
       {
         method: "POST",
-        body: JSON.stringify(selectedFile),
+        body: selectedFile,
         headers: {
           Authorization: "Token " + localStorage.getItem("user-token"),
-          "Content-type": "application/json",
+          "Content-Disposition": ' name="file"; filename=' + selectedFile.name,
+          "Subject-Code": localStorage.getItem("subject-code"),
         },
       }
     );
     const data = await response.json();
   };
+
 
   return (
     <>
@@ -60,7 +63,10 @@ const AddAsignment = (props) => {
               )}
             </div>
           </SidebarHeader>
-          <SidebarContent></SidebarContent>
+          <SidebarContent>
+            
+            <AsignmentList />
+          </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
               <MenuItem>

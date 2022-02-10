@@ -6,9 +6,10 @@
     display: inline-block;
     
 }
-.s_list {
+.s_list{
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+  height: 200px;
 }
 
 .s_list img {
@@ -28,21 +29,22 @@
 .s_list b{
   color: #031e3a;
 }
-.s_list button{
-    padding: 10px 20px;
-    margin: 10px;
-    background: #16c0b2;
-    border: 2px solid #16c0b2;
-    border-radius: 10px;
-    font: inherit;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: bold;
-    font-size: 17px;
-    cursor: pointer;
+
+.sdetails{
+  margin-top: 40px;
+  
 }
-.s_list button:hover{
-    background: #305b86;
-    color: white;
-    border: 2px solid #305b86;
-    transition: 3s;
+.sdetails_link{
+  text-decoration: none;
+  background-color: #11d1eb;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 10px;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+}
+.sdetails_link:hover{
+  background-color: #1c64ad;
+  color: white;
+  transition: 3s;
 }

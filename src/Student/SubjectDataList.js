@@ -1,3 +1,4 @@
+import SubjectButtons from "../Faculty/SubjectButtons";
 import "./SubjectDataList.css";
 
 const SubjectDataList = (props) => {
@@ -18,7 +19,10 @@ const SubjectDataList = (props) => {
           <b>Credit:-</b> {props.subject_credits}
         </h3>
 
-        <button>Show More</button>
+        <div className="sdetails">
+        <SubjectButtons studentData={props.subject_code} />
+        </div>
+        
       </div>
     </div>
   );
