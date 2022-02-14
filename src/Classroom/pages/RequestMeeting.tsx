@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/Layout";
-import RequestMeetingForm from "../components/RequestMeetingForm";
+import Layout from "../components/Layout.tsx";
+import RequestMeetingForm from "../components/RequestMeetingForm.tsx";
 
 function RequestMeeting() {
   return (

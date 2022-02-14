@@ -12,7 +12,7 @@ import FacultyProfile from "./Faculty/FacultyProfile";
 import FacultySubjects from './Faculty/FacultySubjects';
 import StudentClass from './StudentClass/StudentClass';
 import StudentAssignmentList from './StudentClass/StudentAssignmentList';
-import Meeting from "./Classroom/pages/Meeting.tsx";
+import Meeting from "./Classroom/pages/RequestMeeting.tsx";
 const App = () => {
   return (
     <div>

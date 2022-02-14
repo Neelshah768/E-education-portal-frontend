@@ -21,7 +21,7 @@ const StudentClassroomDataList = (props) => {
         </h3>
 
         <div className="sdetails">
-          <Link className="sdetails_link" to="joinmeeting">Join Classroom</Link>
+            <a href="http://localhost:8000" className="sdetails_link" target="_blank">Join Classroom</a>
         </div>
       </div>
     </div>
