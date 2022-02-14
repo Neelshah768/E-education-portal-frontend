@@ -28,6 +28,7 @@ const AddAsignment = (props) => {
   };
   const FormSubmitHandler = async (event) => {
     event.preventDefault();
+    alert('Added successfully');
     console.log(selectedFile.name);
     console.log(selectedFile);
 
@@ -44,6 +45,7 @@ const AddAsignment = (props) => {
       }
     );
     const data = await response.json();
+    
   };
 
 

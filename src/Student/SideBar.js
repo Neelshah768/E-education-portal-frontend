@@ -59,7 +59,7 @@ const SideBar = () => {
                 <Link to="/studentsubject">My Subjects</Link>
               </MenuItem>
               <MenuItem icon={<GiJoin />}>
-                <Link to="/studentClass">Join Class</Link>
+                <Link to="/studentClassroom">Join Class</Link>
               </MenuItem>
             </Menu>
           </SidebarContent>
