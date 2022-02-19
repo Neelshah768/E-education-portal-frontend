@@ -2,6 +2,8 @@
     width: 80%;
     height: 700px;
     background-color: black;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.75);
+    
 }
 .FCorouselInner{
     width: 100%;

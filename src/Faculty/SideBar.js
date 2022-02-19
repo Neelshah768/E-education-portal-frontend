@@ -15,6 +15,7 @@ import {
   BsFillArrowRightSquareFill,
 } from "react-icons/bs";
 
+
 import { ImProfile } from "react-icons/im";
 import { MdSubject } from "react-icons/md";
 import { GiJoin } from "react-icons/gi";
@@ -64,6 +65,7 @@ const SideBar = () => {
               <MenuItem icon={<GiJoin />}>
                 <Link to="/facultyclassroom">Join Class</Link>
               </MenuItem>
+             
             </Menu>
           </SidebarContent>
           <SidebarFooter>

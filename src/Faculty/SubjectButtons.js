@@ -71,6 +71,7 @@ const SubjectButtons = (props) => {
       >
         Students
       </Link>
+      <Link to="/facultychat" className="fdetails_link">Chat</Link>
       <div>
         {Slist}
       </div>

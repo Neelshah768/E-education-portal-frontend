@@ -1,0 +1,45 @@
+.chat {
+  
+  width: 100%;
+  height: 100%;
+}
+.chattext {
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.chattext input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 20px;
+}
+.chattext button {
+    margin: 10px 10px 10px -8px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #11d1eb;
+    border: 1px solid #11d1eb;
+
+}
+.facultyul{
+
+  margin: 10px;
+  background-color: rgb(26, 152, 224);
+  list-style: none;
+  width: 99%;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  color: white;
+  font-weight: bold;
+  
+}
+.facultyli{
+  font-family: 'Ubuntu', sans-serif;
+  padding: 10px ;
+  
+}

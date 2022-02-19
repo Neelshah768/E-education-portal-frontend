@@ -12,7 +12,8 @@ import FacultyProfile from "./Faculty/FacultyProfile";
 import FacultySubjects from './Faculty/FacultySubjects';
 import StudentClass from './StudentClass/StudentClass';
 import StudentAssignmentList from './StudentClass/StudentAssignmentList';
-import Meeting from "./Classroom/pages/RequestMeeting.tsx";
+import FacultyClassroom from "./Classroom/FacultyClassroom";
+import FacultyChat from './Faculty/FacultyChat';
 const App = () => {
   return (
     <div>
@@ -30,7 +31,8 @@ const App = () => {
         <Route exact path="/facultyprofile" component={FacultyProfile}></Route>
         <Route exact path="/facultysubject" component={FacultySubjects}></Route>
         <Route exact path="/studentclass" component={StudentClass}></Route>
-        <Route exact path="/joinmeeting" component={Meeting} />
+        <Route exact path="/facultyclassroom" component={FacultyClassroom}></Route>
+        <Route exact path="/facultychat" component={FacultyChat}></Route>
       </Switch>
     </div>
   );

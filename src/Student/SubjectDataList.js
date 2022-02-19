@@ -23,15 +23,16 @@ const SubjectDataList = (props) => {
           <b>Credit:-</b> {props.subject_credits}
         </h3>
 
-        <div className="sdetails">
-          <Link className="sdetails_link">Show More</Link>
+        <div className="subdetails">
+          <Link className="subdetails_link">Show More</Link>
           <Link
-            className="sdetails_link"
+            className="subdetails_link"
             to="studentAssignmentList"
             onClick={SubjectCodeHandler}
           >
             Show Assignment
           </Link>
+          <Link className="subdetails_link">Chat</Link>
         </div>
       </div>
     </div>
