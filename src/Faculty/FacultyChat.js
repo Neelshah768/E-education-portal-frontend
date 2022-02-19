@@ -34,12 +34,12 @@ const FacultyChat = (props) => {
   }
   const chatList = chat.map((cList)=>(
     <ul key={Math.random()} className="facultyul">
-      <li className="facultyli">{cList.username}:-</li>
+      <li className="facultyli">{cList.username} :-</li>
       <li className="facultyli">{cList.chat}</li>
     </ul>
   )) 
   return (
-    <div className="chat">
+    <div className="fchat">
       {item && chatList}
       <div className="chattext">
         <input type="text" placeholder="Text Something" onChange={inputChangeHandler}/>

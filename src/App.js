@@ -7,6 +7,7 @@ import Student_Portal from "./Student/Student_Portal";
 import StudentProfile from "./Student/StudentProfile";
 import SubjectList from './Student/SubjectList';
 import StudentClassroom from "./Classroom/StudentClassroom";
+import StudentChat from './Student/StudentChat';
 import Faculty_Portal from './Faculty/Faculty_Portal';
 import FacultyProfile from "./Faculty/FacultyProfile";
 import FacultySubjects from './Faculty/FacultySubjects';
@@ -27,6 +28,7 @@ const App = () => {
         <Route exact path="/studentsubject" component={SubjectList}></Route>
         <Route exact path="/studentAssignmentList" component={StudentAssignmentList}></Route>
         <Route exact path="/studentClassroom" component={StudentClassroom}></Route>
+        <Route exact path='/studentChat' component={StudentChat}></Route>
         <Route exact path="/faculty" component={Faculty_Portal}></Route>
         <Route exact path="/facultyprofile" component={FacultyProfile}></Route>
         <Route exact path="/facultysubject" component={FacultySubjects}></Route>

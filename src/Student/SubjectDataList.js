@@ -32,7 +32,7 @@ const SubjectDataList = (props) => {
           >
             Show Assignment
           </Link>
-          <Link className="subdetails_link">Chat</Link>
+          <Link className="subdetails_link" to="/studentChat">Chat</Link>
         </div>
       </div>
     </div>
