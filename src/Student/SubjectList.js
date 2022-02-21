@@ -13,7 +13,7 @@ const SubjectList = (props) => {
         "http://localhost:8000/api/studentsubject/",
         {
           headers: {
-            Authorization: "Token " + localStorage.getItem("user-token"),
+            Authorization: "Token " + localStorage.getItem("Student-token"),
           },
         }
       );

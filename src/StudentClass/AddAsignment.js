@@ -38,9 +38,9 @@ const AddAsignment = (props) => {
         method: "POST",
         body: selectedFile,
         headers: {
-          Authorization: "Token " + localStorage.getItem("user-token"),
+          Authorization: "Token " + localStorage.getItem("Faculty-token"),
           "Content-Disposition": ' name="file"; filename=' + selectedFile.name,
-          "Subject-Code": localStorage.getItem("subject-code"),
+          "Subject-Code": localStorage.getItem("faculty-subject-code"),
         },
       }
     );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Home.css";
-import { Link,Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
@@ -54,7 +54,6 @@ const Home = (props) => {
           Faculty
         </Link>
         <a href="http://localhost:8000/admin" className="action_link">
-          {" "}
           Admin
         </a>
         {redirect}

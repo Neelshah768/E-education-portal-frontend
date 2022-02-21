@@ -3,7 +3,7 @@ import './FacultyClassroomDataList.css';
 const FacultyClassroomDataList = (props) => {
   const truncate = (input) =>
     input?.length > 24 ? `${input.substring(0, 24)}...` : input;
-    let subjectCode = { name: localStorage.getItem("subject-code") };
+    let subjectCode = { name: localStorage.getItem("faculty-subject-code") };
 
 const MeetingHandler = async(event) =>{
     const response = await fetch(
@@ -19,7 +19,7 @@ const MeetingHandler = async(event) =>{
     
 const data = await response.json();
 console.log(data.id);
-alert("your meeting id"+ data.id + " coppy it");
+alert("your meeting id "+ data.id + " coppy it");
 }   
 
    return (

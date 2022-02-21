@@ -1,5 +1,5 @@
 import './AsignmentDataList.css';
-import { useEffect,useState } from 'react';
+import { useState } from 'react';
 const AsignmentDataList = (props) => {
     const[error,setError] = useState();
     console.log(JSON.stringify({"id": props.file_id}))
@@ -12,7 +12,7 @@ const AsignmentDataList = (props) => {
                 method: "POST",
                 body: JSON.stringify({"id": props.file_id}),
                 headers: {
-                  Authorization: "Token " + localStorage.getItem("user-token"),
+                  Authorization: "Token " + localStorage.getItem("Faculty-token"),
                   "Content-type": "application/json",
                 },
               }

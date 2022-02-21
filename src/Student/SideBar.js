@@ -47,6 +47,7 @@ const SideBar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu iconShape="square">
+              
               <MenuItem icon={<ImProfile />} >
                 <Link to="/studentprofile">My profile</Link>
               </MenuItem>

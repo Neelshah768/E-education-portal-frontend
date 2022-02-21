@@ -14,7 +14,7 @@ const StudentProfile = (props) => {
         "http://localhost:8000/api/studentprofile/",
         {
           headers: {
-            Authorization: "Token " + localStorage.getItem("user-token"),
+            Authorization: "Token " + localStorage.getItem("Student-token"),
           },
         }
       );

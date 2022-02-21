@@ -1,8 +1,25 @@
 import "./FacultyChat.css";
 import { IoMdSend } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const FacultyChat = (props) => {
-
+  useEffect(async()=>{
+    let subjectCode = { subject_code: localStorage.getItem("faculty-subject-code") , "chat": input};
+    const response = await fetch(
+      "http://localhost:8000/api/chat/",
+      {
+        method: "POST",
+        body: JSON.stringify(subjectCode),
+        headers: {
+          Authorization: "Token " + localStorage.getItem("Faculty-token"),
+          "Content-type": "application/json",
+        },
+      }
+      
+    )
+    const data = await response.json();
+    console.log(data);
+    setChat(data);
+  },[]);
   const[input,setInput] = useState();
   const[item,setItem] = useState(false);
   const[chat,setChat] = useState([]);
@@ -11,7 +28,7 @@ const FacultyChat = (props) => {
     setInput(event.target.value);
     
   }
-  let subjectCode = { subject_code: localStorage.getItem("subject-code") , "chat": input};
+  let subjectCode = { subject_code: localStorage.getItem("faculty-subject-code") , "chat": input};
   async function messageHandler(){
     const response = await fetch(
       "http://localhost:8000/api/chat/",
@@ -19,7 +36,7 @@ const FacultyChat = (props) => {
         method: "POST",
         body: JSON.stringify(subjectCode),
         headers: {
-          Authorization: "Token " + localStorage.getItem("user-token"),
+          Authorization: "Token " + localStorage.getItem("Faculty-token"),
           "Content-type": "application/json",
         },
       }
@@ -40,7 +57,7 @@ const FacultyChat = (props) => {
   )) 
   return (
     <div className="fchat">
-      {item && chatList}
+      {chatList}
       <div className="chattext">
         <input type="text" placeholder="Text Something" onChange={inputChangeHandler}/>
         <button onClick={messageHandler}>

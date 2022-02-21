@@ -14,7 +14,7 @@ const FacultyClassroom = (props) => {
         "http://localhost:8000/api/teachersubject/",
         {
           headers: {
-            Authorization: "Token " + localStorage.getItem("user-token"),
+            Authorization: "Token " + localStorage.getItem("Faculty-token"),
           },
         }
       );

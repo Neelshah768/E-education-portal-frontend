@@ -41,7 +41,7 @@ const SubjectButtons = (props) => {
     } catch (err) {
       setError(err.message || "Something Went Wrong!");
     }*/
-    localStorage.setItem("subject-code",subject_code);
+    localStorage.setItem("faculty-subject-code",subject_code);
   }
 
   const Slist = studentList.map(
@@ -71,7 +71,7 @@ const SubjectButtons = (props) => {
       >
         Students
       </Link>
-      <Link to="/facultychat" className="fdetails_link">Chat</Link>
+      <Link to="/facultychat" className="fdetails_link"  onClick={studentListhandler}>Chat</Link>
       <div>
         {Slist}
       </div>

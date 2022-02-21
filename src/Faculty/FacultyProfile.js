@@ -13,7 +13,7 @@ const FacultyProfile = (props) => {
         "http://localhost:8000/api/teacherprofile/",
         {
         headers:{
-        Authorization: 'Token ' + localStorage.getItem("user-token")
+        Authorization: 'Token ' + localStorage.getItem("Faculty-token")
         }
         }
       );

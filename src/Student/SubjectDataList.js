@@ -6,7 +6,7 @@ const SubjectDataList = (props) => {
     input?.length > 24 ? `${input.substring(0, 24)}...` : input;
 
   const SubjectCodeHandler = () => {
-    localStorage.setItem("subject-code", props.subject_code);
+    localStorage.setItem("student-subject-code", props.subject_code);
   };
   return (
     <div className="subjectData">
@@ -32,7 +32,7 @@ const SubjectDataList = (props) => {
           >
             Show Assignment
           </Link>
-          <Link className="subdetails_link" to="/studentChat">Chat</Link>
+          <Link className="subdetails_link" to="/studentChat" onClick={SubjectCodeHandler}>Chat</Link>
         </div>
       </div>
     </div>

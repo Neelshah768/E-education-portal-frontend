@@ -4,7 +4,7 @@ const StudentAssignmentList = (props) => {
   const [asignmentList, setAsignmentList] = useState([]);
   const [error, setError] = useState();
 
-  let subjectCode = { subject_code: localStorage.getItem("subject-code") };
+  let subjectCode = { subject_code: localStorage.getItem("student-subject-code") };
   useEffect(async () => {
     try {
       const response = await fetch(
@@ -13,7 +13,7 @@ const StudentAssignmentList = (props) => {
           method: "POST",
           body: JSON.stringify(subjectCode),
           headers: {
-            Authorization: "Token " + localStorage.getItem("user-token"),
+            Authorization: "Token " + localStorage.getItem("Student-token"),
             "Content-type": "application/json",
           },
         }

@@ -1,16 +1,35 @@
 import "./StudentChat.css";
 import { IoMdSend } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const StudentChat = (props) => {
   const [input, setInput] = useState();
   const [item, setItem] = useState(false);
   const [chat, setChat] = useState([]);
 
+  useEffect(async()=>{
+    let subjectCode = {
+      subject_code: localStorage.getItem("student-subject-code"),
+      chat: input,
+    };
+    const response = await fetch("http://localhost:8000/api/chat/", {
+      method: "POST",
+      body: JSON.stringify(subjectCode),
+      headers: {
+        Authorization: "Token " + localStorage.getItem("Student-token"),
+        "Content-type": "application/json",
+      },
+    });
+    const data = await response.json();
+    console.log(data);
+    setChat(data);
+  },[]);
+
+  
   const inputChangeHandler = (event) => {
     setInput(event.target.value);
   };
   let subjectCode = {
-    subject_code: localStorage.getItem("subject-code"),
+    subject_code: localStorage.getItem("student-subject-code"),
     chat: input,
   };
   async function messageHandler() {
@@ -18,7 +37,7 @@ const StudentChat = (props) => {
       method: "POST",
       body: JSON.stringify(subjectCode),
       headers: {
-        Authorization: "Token " + localStorage.getItem("user-token"),
+        Authorization: "Token " + localStorage.getItem("Student-token"),
         "Content-type": "application/json",
       },
     });
@@ -35,7 +54,7 @@ const StudentChat = (props) => {
   ));
   return (
     <div className="schat">
-      {item && chatList}
+      {chatList}
       <div className="chattext">
         <input
           type="text"

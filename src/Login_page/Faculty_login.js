@@ -49,7 +49,7 @@ const Faculty_login = (props) => {
         const data = await response.json();
         console.log(data);
         setToken(data);
-        localStorage.setItem("user-token", data["token"]);
+        localStorage.setItem("Faculty-token", data["token"]);
         
       }
     } catch (err) {
