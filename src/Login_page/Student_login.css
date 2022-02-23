@@ -1,62 +1,89 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
-
+.SBackground{
+  
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 20px;
+}
 .studentPortal p{
-  margin: 100px auto 50px auto;
+  margin: 10px auto 50px auto;
   width: 90%;
   max-width: 360px;
   font-family: "Ubuntu", sans-serif;
   font-size: 50px;
-  color: #1a4d48;
   font-weight: bold;
 }
 
-.login {
+.login{
   width: 90%;
   margin: auto;
-  max-width: 450px;
+  min-width: 1050px;
   padding: 20px;
+  display: flex;
+  height: 550px;
+  background-image: linear-gradient(120deg, #313174, #773f8d);
 }
-.login h2 {
+.login img{
+  margin-top: 30px;
+  margin-left: 30px;
+  padding: 10px;
+  height: 450px;
+  border-radius:14px;
+}
+.login .leftLogin{
+  float: left;
+}
+.login .vl{
+  border-right: 4px solid rgb(255, 255, 255);
+  height: 460px;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+.login .rightLogin{
+  float: right;
+  margin-left: 50px;
+}
+.login .rightLogin h2{
   font-family: "Ubuntu", sans-serif;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 35px;
+  margin: 40px 50px 55px 30px;
   font-size: 30px;
   color: white;
+  
 }
-.login label {
+.login .rightLogin label {
   font-family: "Ubuntu", sans-serif;
-  display: block;
   margin-bottom: 5px;
   margin-top: 10px;
   color: white;
   font-size: 20px;
 }
-.login input {
+.login .rightLogin input{
   border: 1px solid white;
-  width: 25.5rem;
-  padding: 10px;
-  border-radius: 6px;
-  font: inherit;
-}
-.login button {
-  margin-top: 25px;
-  padding: 10px;
   width: 100%;
-  background-color: black;
+  padding: 10px;
+  border-radius: 3px;
+  font: inherit;
+  
+}
+.login .rightLogin button {
+  margin-top: 35px;
+  padding: 10px;
+  background-color: rgb(7, 7, 5);
   color: white;
-  border: none;
+  border: 1px solid black;
   border-radius: 6px;
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   font-size: 25px;
   cursor: pointer;
 }
-.login button:hover,
+.login .rightLogin button:hover,
 .login button:active {
-  background-color: #16c0b2;
-  border: 2px solid #16c0b2;
-  color: white;
+  color: #ff7a59;
+  border: #ff7a59 solid 1px;
+  background:#fff;
+  
 }
 
 @media (max-width: 580px) {

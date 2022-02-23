@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
+import StudentLogin from "../Assets/Student Login.jpg";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
 import "./Student_login.css";
@@ -25,7 +26,6 @@ const Student_login = (props) => {
   const pages = ["home"];
   const urls = {
     home: "/",
-    
   };
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
@@ -93,7 +93,7 @@ const Student_login = (props) => {
     setError(null);
   };
   return (
-    <div>
+    <div className="SBackground">
       {error && (
         <ErrorModal
           title={error.title}
@@ -106,31 +106,37 @@ const Student_login = (props) => {
       </div>
       <div>
         <Card className="login">
-          <h2>Login to your Account</h2>
-          <form onSubmit={studentSubmitHandler}>
-            <label htmlFor="Username">Login Id:- </label>
-            <input
-              id="Username"
-              type="text"
-              placeholder="Enter your login Id"
-              onChange={StudentIdHandler}
-              value={studentId}
-            ></input>
+          <div className="leftLogin">
+            <img src={StudentLogin} alt=""></img>
+          </div>
+          <div className="vl"></div>
+          <div className="rightLogin">
+            <h2>Login to your Account</h2>
+            <form onSubmit={studentSubmitHandler}>
+              <label htmlFor="Username">Login Id:- </label>
+              <input
+                id="Username"
+                type="text"
+                placeholder="Enter your login Id"
+                onChange={StudentIdHandler}
+                value={studentId}
+              ></input>
 
-            <label htmlFor="Password">Password:- </label>
-            <input
-              id="Password"
-              type="Password"
-              placeholder="Enter your Password"
-              onChange={StudentPasswordHandler}
-              value={studentPassword}
-            ></input>
-            <button type="submit">Login </button>
-          </form>
+              <label htmlFor="Password">Password:- </label>
+              <input
+                id="Password"
+                type="Password"
+                placeholder="Enter your Password"
+                onChange={StudentPasswordHandler}
+                value={studentPassword}
+              ></input>
+              <button type="submit">Login </button>
+            </form>
+          </div>
         </Card>
 
         {token && <Redirect to="/student"></Redirect>}
-        {redirect}  
+        {redirect}
         <p id="transcript">Transcript: {transcript}</p>
 
         <button onClick={SpeechRecognition.startListening}>Start</button>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./Faculty_login.css";
 import ErrorModal from "../UI/ErrorModal";
+import FacultyImage from ".././Assets/Teacher Login.jpg";
 
 const Faculty_login = (props) => {
   const [facultyId, setFacultyId] = useState("");
@@ -50,7 +51,6 @@ const Faculty_login = (props) => {
         console.log(data);
         setToken(data);
         localStorage.setItem("Faculty-token", data["token"]);
-        
       }
     } catch (err) {
       setError(err.message || "Something Went Wrong!");
@@ -63,7 +63,7 @@ const Faculty_login = (props) => {
     setError(null);
   };
   return (
-    <div>
+    <div className="SBackground">
       {error && (
         <ErrorModal
           title={error.title}
@@ -71,11 +71,16 @@ const Faculty_login = (props) => {
           onConfirm={errorHandler}
         />
       )}
-      <div className="facultyPortal">
+      <div className="studentPortal">
         <p>Faculty Portal</p>
       </div>
       <div>
         <Card className="login">
+          <div className="leftLogin">
+            <img src={FacultyImage} alt=""></img>
+          </div>
+          <div className="vl"></div>
+          <div className="rightLogin">
           <h2>Login to your Account</h2>
           <form onSubmit={facultySubmitHandler}>
             <label htmlFor="Username">Login Id:- </label>
@@ -97,6 +102,7 @@ const Faculty_login = (props) => {
             ></input>
             <button type="submit">Login </button>
           </form>
+          </div>
         </Card>
 
         {token && <Redirect to="/faculty"></Redirect>}
