@@ -8,6 +8,7 @@ import StudentProfile from "./Student/StudentProfile";
 import SubjectList from './Student/SubjectList';
 import StudentClassroom from "./Classroom/StudentClassroom";
 import StudentChat from './Student/StudentChat';
+import Quiz from './Quiz/Quiz';
 import Faculty_Portal from './Faculty/Faculty_Portal';
 import FacultyProfile from "./Faculty/FacultyProfile";
 import FacultySubjects from './Faculty/FacultySubjects';
@@ -15,6 +16,7 @@ import StudentClass from './StudentClass/StudentClass';
 import StudentAssignmentList from './StudentClass/StudentAssignmentList';
 import FacultyClassroom from "./Classroom/FacultyClassroom";
 import FacultyChat from './Faculty/FacultyChat';
+import CreateQuiz from './Quiz/CreateQuiz';
 const App = () => {
   return (
     <div>
@@ -29,12 +31,14 @@ const App = () => {
         <Route exact path="/studentAssignmentList" component={StudentAssignmentList}></Route>
         <Route exact path="/studentClassroom" component={StudentClassroom}></Route>
         <Route exact path='/studentChat' component={StudentChat}></Route>
+        <Route exact path='/quiz' component={Quiz}></Route>
         <Route exact path="/faculty" component={Faculty_Portal}></Route>
         <Route exact path="/facultyprofile" component={FacultyProfile}></Route>
         <Route exact path="/facultysubject" component={FacultySubjects}></Route>
         <Route exact path="/studentclass" component={StudentClass}></Route>
         <Route exact path="/facultyclassroom" component={FacultyClassroom}></Route>
         <Route exact path="/facultychat" component={FacultyChat}></Route>
+        <Route exact path='/createquiz' component={CreateQuiz}></Route>
       </Switch>
     </div>
   );

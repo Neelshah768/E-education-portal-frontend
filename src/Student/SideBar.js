@@ -16,7 +16,7 @@ import {
 } from "react-icons/bs";
 
 import { ImProfile } from "react-icons/im";
-import { MdSubject } from "react-icons/md";
+import { MdSubject, MdQuiz } from "react-icons/md";
 import { GiJoin } from "react-icons/gi";
 
 import "react-pro-sidebar/dist/css/styles.css";
@@ -47,8 +47,7 @@ const SideBar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu iconShape="square">
-              
-              <MenuItem icon={<ImProfile />} >
+              <MenuItem icon={<ImProfile />}>
                 <Link to="/studentprofile">My profile</Link>
               </MenuItem>
 
@@ -62,7 +61,9 @@ const SideBar = () => {
               <MenuItem icon={<GiJoin />}>
                 <Link to="/studentClassroom">Join Class</Link>
               </MenuItem>
-              
+              <MenuItem icon={<MdQuiz />}>
+                <Link to="/quiz">Quiz</Link>
+              </MenuItem>
             </Menu>
           </SidebarContent>
           <SidebarFooter>

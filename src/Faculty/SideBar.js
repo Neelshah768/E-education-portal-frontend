@@ -17,7 +17,7 @@ import {
 
 
 import { ImProfile } from "react-icons/im";
-import { MdSubject } from "react-icons/md";
+import { MdSubject,MdQuiz } from "react-icons/md";
 import { GiJoin } from "react-icons/gi";
 
 import "react-pro-sidebar/dist/css/styles.css";
@@ -64,6 +64,9 @@ const SideBar = () => {
               </MenuItem>
               <MenuItem icon={<GiJoin />}>
                 <Link to="/facultyclassroom">Join Class</Link>
+              </MenuItem>
+              <MenuItem icon={<MdQuiz />}>
+                <Link to="/createquiz">Quiz</Link>
               </MenuItem>
              
             </Menu>
