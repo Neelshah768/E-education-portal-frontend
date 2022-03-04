@@ -6,7 +6,7 @@ const CreateQuiz = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [question, setQuestion] = useState([]);
   useEffect(async () => {
-    const response = await fetch("http://localhost:8000/api/studentexam/", {
+    const response = await fetch("http://localhost:8000/api/teacherexam/", {
       headers: {
         Authorization: "Token " + localStorage.getItem("Faculty-token"),
         "content-type": "application-header",
@@ -31,10 +31,10 @@ const CreateQuiz = (props) => {
   const QuestionList = question.map((QList) => (
     <ul key={Math.random()} className="Studentul">
       <li className="Studentli">Question:- {QList.question}:-</li>
-      <li className="Studentli">Opetion A :- {QList.options[0].text}</li>
-      <li className="Studentli">Opetion B :- {QList.options[1].text}</li>
-      <li className="Studentli">Opetion C :- {QList.options[2].text}</li>
-      <li className="Studentli">Opetion D :- {QList.options[3].text}</li>
+      <li className="Studentli">Opetion A :- {QList.optionA}</li>
+      <li className="Studentli">Opetion B :- {QList.optionB}</li>
+      <li className="Studentli">Opetion C :- {QList.optionC}</li>
+      <li className="Studentli">Opetion D :- {QList.optionD}</li>
     </ul>
   ));
 
