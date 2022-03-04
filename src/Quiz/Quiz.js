@@ -1,92 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Quiz.css";
-export default function App() {
-  const questions = [
-    {
-      questionText: "What is the capital of France?",
-      answerOptions: [
-        { answerText: "New York", isCorrect: false },
-        { answerText: "London", isCorrect: false },
-        { answerText: "Paris", isCorrect: true },
-        { answerText: "Dublin", isCorrect: false },
-      ],
-    },
-    {
-      questionText: "Who is CEO of Tesla?",
-      answerOptions: [
-        { answerText: "Jeff Bezos", isCorrect: false },
-        { answerText: "Elon Musk", isCorrect: true },
-        { answerText: "Bill Gates", isCorrect: false },
-        { answerText: "Tony Stark", isCorrect: false },
-      ],
-    },
-    {
-      questionText: "The iPhone was created by which company?",
-      answerOptions: [
-        { answerText: "Apple", isCorrect: true },
-        { answerText: "Intel", isCorrect: false },
-        { answerText: "Amazon", isCorrect: false },
-        { answerText: "Microsoft", isCorrect: false },
-      ],
-    },
-    {
-      questionText: "How many Harry Potter books are there?",
-      answerOptions: [
-        { answerText: "1", isCorrect: false },
-        { answerText: "4", isCorrect: false },
-        { answerText: "6", isCorrect: false },
-        { answerText: "7", isCorrect: true },
-      ],
-    },
-  ];
+import StudentQuiz from "./StudentQuiz";
+const Quiz = () => {
+  const [questionList, setQuestionList] = useState({});
 
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showScore, setShowScore] = useState(false);
-  const [score, setScore] = useState(0);
+  useEffect(async () => {
+    const response = await fetch(
+      "http://localhost:8000/api/studenttestcheck/",
+      {
+        method: "POST",
+        body: JSON.stringify({ StartExam: "" }),
+        headers: {
+          Authorization: "Token " + localStorage.getItem("Student-token"),
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    setQuestionList(data);
+  }, []);
 
-  const handleAnswerOptionClick = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
-
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowScore(true);
-    }
+  const pageRefreshHandler = () => {
+    console.log("reback");
+    window.location.reload(false);
   };
+  /*const QuestionList = questionList.map((QList) => (
+    <StudentQuiz
+      key={Math.random().toString()}
+      Question={QList.question}
+      OptionA={QList.optionsA}
+      OptionB={QList.optionsB}
+      OptionC={QList.optionsC}
+      OptionD={QList.optionsD}
+    />
+  ));*/
+
   return (
     <div className="quiz-back">
-      <div className="quiz">
-        {showScore ? (
-          <div className="score-section">
-            You scored {score} out of {questions.length}
-          </div>
-        ) : (
-          <>
-            <div className="question-section">
-              <div className="question-count">
-                <span>Question {currentQuestion + 1}</span>/{questions.length}
-              </div>
-              <div className="question-text">
-                {questions[currentQuestion].questionText}
-              </div>
-            </div>
-            <div className="answer-section">
-              {questions[currentQuestion].answerOptions.map((answerOption) => (
-                <button
-                  onClick={() =>
-                    handleAnswerOptionClick(answerOption.isCorrect)
-                  }
-                >
-                  {answerOption.answerText}
-                </button>
-              ))}
-            </div>
-          </>
-        )}
+      <div>
+        <StudentQuiz
+          studentQuestion={questionList}
+          onRefresh={pageRefreshHandler}
+        />
       </div>
+      <div></div>
     </div>
   );
-}
+};
+export default Quiz;

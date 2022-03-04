@@ -6,6 +6,8 @@ const CreateQuizForm = (props) => {
   const [enterOptionB, setEnterOptionB] = useState("");
   const [enterOptionC, setEnterOptionC] = useState("");
   const [enterOptionD, setEnterOptionD] = useState("");
+  const [correct,setCorrect] = useState("");
+
 
   const questionHandler = (event) => {
     setEnteredQuestion(event.target.value);
@@ -22,6 +24,9 @@ const CreateQuizForm = (props) => {
   const optionDhandler = (event) => {
     setEnterOptionD(event.target.value);
   };
+  const correctAnswer = (event) => {
+    setCorrect(event.target.value);
+  }
   const SubmitHandler = async(event) => {
     event.preventDefault();
 
@@ -30,20 +35,22 @@ const CreateQuizForm = (props) => {
         optionA:enterOptionA,
         optionB:enterOptionB,
         optionC:enterOptionC,
-        optionD:enterOptionD
+        optionD:enterOptionD,
+        correctAns:correct
     }
-    console.log(quizQuestions);
+    
     props.onSaveQuizData(quizQuestions);
 
-    const response = await fetch('',{
+    const response = await fetch('http://localhost:8000/api/teacherexam/',{
       method:'POST',
-      body:JSON.stringify(),
+      body:JSON.stringify(quizQuestions),
       headers:{
+        Authorization: 'Token ' + localStorage.getItem("Faculty-token"),
         'Content-type':'application/json'
       }
     });
     const data = await response.json();
-    console.log(data);
+        console.log(data);
   }
   return (
     <form onSubmit={SubmitHandler}>
@@ -96,6 +103,16 @@ const CreateQuizForm = (props) => {
               placeholder="Option D"
               onChange={optionDhandler}
               value={enterOptionD}
+              required
+            ></input>
+          </div>
+          <div className="new-question__control">
+            <label>Correct Option:- </label>
+            <input
+              type="text"
+              placeholder="Correct Option"
+              onChange={correctAnswer}
+              value={correct}
               required
             ></input>
           </div>

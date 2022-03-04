@@ -37,4 +37,8 @@
   .new-question button.alternative:active {
     background-color: #ddb3f8;
   }
-  
+  .faculty-add-question{
+    width: 50rem;
+    max-width: 95%;
+    margin: 2rem auto;
+  }

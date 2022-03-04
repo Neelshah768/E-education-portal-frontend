@@ -1,0 +1,24 @@
+.student-question {
+  width: 50rem;
+  max-width: 95%;
+  margin: 2rem auto;
+  background-color: #ddd;
+  border: 2px solid #a7a4a4;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+}
+.SQuestions {
+  margin-bottom: 6px;
+}
+.SOptions li{
+    list-style: none;
+    margin: 2px;
+}
+.GiveAnswer{
+    padding: 10px 20px;
+    margin-top: 10px;
+    
+}
