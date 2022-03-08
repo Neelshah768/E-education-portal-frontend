@@ -28,7 +28,7 @@ const AddAsignment = (props) => {
   };
   const FormSubmitHandler = async (event) => {
     event.preventDefault();
-    alert('Added successfully');
+    window.location.reload(false);
     console.log(selectedFile.name);
     console.log(selectedFile);
 

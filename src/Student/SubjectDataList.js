@@ -24,7 +24,7 @@ const SubjectDataList = (props) => {
         </h3>
 
         <div className="subdetails">
-          <Link className="subdetails_link">Show More</Link>
+          <a href={props.link} className="subdetails_link" target="_blank" rel="noreferrer">Show More</a>
           <Link
             className="subdetails_link"
             to="studentAssignmentList"

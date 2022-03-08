@@ -25,9 +25,11 @@ const SubjectList = (props) => {
       console.log(data);
 
       const loadedSubjectData = [];
+
       for (const key in data) {
         loadedSubjectData.push({
           id: key,
+          link:data[key].link,
           subject_code:data[key].subject_code,
           subject_credits: data[key].subject_credits,
           subject_name: data[key].subject_name,
@@ -44,6 +46,7 @@ const SubjectList = (props) => {
   const Slist = subjectList.map((sList) => (
     <SubjectDataList
       id={sList.id}
+      link={sList.link}
       key={sList.id}
       subject_code={sList.subject_code}
       subject_credits={sList.subject_credits}

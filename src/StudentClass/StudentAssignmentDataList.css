@@ -1,0 +1,36 @@
+.assignmentData {
+  margin-top: 25px;
+  margin-left: 450px;
+  margin-right: -290px;
+  display: inline-block;
+}
+.a_list {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 10px;
+}
+.a_list a{
+    text-decoration: none;
+    color: black;
+    
+}
+.a_list h3{
+    margin: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: lighter;
+    
+}
+.a_list button{
+    margin: 5px;
+    width: 100px;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 5px;
+    background-color: #11d1eb;
+    border: none;
+    border-radius: 5px;
+}
+.a_buttons{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+}

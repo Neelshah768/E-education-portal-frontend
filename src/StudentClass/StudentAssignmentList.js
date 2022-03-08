@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import StudentAssignmentDataList from "./StudentAssignmentDataList";
+import SideBar from "../Student/SideBar";
 const StudentAssignmentList = (props) => {
   const [asignmentList, setAsignmentList] = useState([]);
   const [error, setError] = useState();
@@ -23,6 +24,7 @@ const StudentAssignmentList = (props) => {
       }
       const data = await response.json();
       console.log(data);
+      
       const loadedAssignmentList = [];
       for (const key in data) {
         loadedAssignmentList.push({
@@ -34,7 +36,7 @@ const StudentAssignmentList = (props) => {
         });
       }
       setAsignmentList(loadedAssignmentList);
-      console.log();
+      
     } catch (err) {
       setError(err.message || "Something Went Wrong!");
     }
@@ -52,11 +54,9 @@ const StudentAssignmentList = (props) => {
   ));
   return (
     <div>
-      <div>{error && <p>{error.message}</p>}</div>
-      <div className="studentClass">
-        <p>Date</p>
-        <p>File Name</p>
-        <p>Files to Open</p>
+      {error && <p>{error.message}</p>}
+      <div className="sidebar">
+        <SideBar />
       </div>
       <div>{listasignment}</div>
     </div>

@@ -31,6 +31,7 @@ const SideBar = () => {
   };
   const logoutHandler=()=>{
     localStorage.clear();
+    
   }
 
   return (

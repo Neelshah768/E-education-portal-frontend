@@ -1,65 +1,81 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
 
-.background {
-  background: url("../Assets/LoginPageBackground.jpg");
+.HomePage {
+  display: flex;
+}
+.home_left {
   height: 750px;
 }
 .heading {
-  margin-left: 180px;
-  padding-top: 100px;
+  margin-left: 150px;
+  padding-top: 80px;
 }
-.background h1 {
+.home_left h1 {
   font-family: "Cormorant Garamond", serif;
   font-size: 80px;
-  color: #305b86;
+  color: rgb(0, 102, 255);
 }
 .role {
-  font: inherit;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 30px;
-  margin-left: 330px;
-  margin-top: 60px;
+  margin-left: 280px;
+  margin-top: 80px;
   font-weight: bold;
+}
+.role_under{
+  border-bottom: 2px solid black;
+  margin-top: 5px;
+  width: 220px;
 }
 .action {
-  margin-left: 310px;
+  display: flex;
+  margin-left: 40px;
 }
-
-.action_link {
+.action_card{
   display: flex;
   flex-direction: column;
-  font-size: 30px;
-  font-weight: bold;
-  font-family: "Times New Roman", Times, serif;
+  margin: 40px 30px;
+  box-shadow: 0 5px 18px rgba(0, 0,0,0.25);
+  border-radius: 15px;
+  align-items: center;
   text-decoration: none;
-  background-color: #16c0b2;
-  width: 250px;
-  margin: 20px 0px;
-  padding: 20px 70px;
-  border-radius: 20px;
-  border: 2px solid #16c0b2;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.action_card:hover{
+  transition: 0.5s;
+  transform: translateY(-10px);
+}
+.action_card img{
+  height: 180px;
+  padding: 15px;
+}
+.action_card p{
+  font-family: 'Ubuntu', sans-serif;
   color: black;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
-.action_link:hover {
-  background: #305b86;
-  border: 2px solid #305b86;
-  color: white;
-}
-#transcript{
+#transcript {
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  
+}
+.home_right {
+  margin: auto;
+}
+.home_right img {
+  margin-top: 60px;
+  height: 500px;
 }
 
-@media(max-width:580px){
-  .background{
+@media (max-width: 580px) {
+  .background {
     background: none;
   }
   .heading {
     margin-left: 60px;
     padding-top: 50px;
   }
-  .background h1{
+  .background h1 {
     font-size: 60px;
   }
   .role {

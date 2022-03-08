@@ -4,6 +4,11 @@ import { Link, Redirect } from "react-router-dom";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import home_page from "../Assets/hpage.webp";
+import StudentIcon from "../Assets/StudentIcon.png";
+import TeacherIcon from "../Assets/TeacherIcon.png";
+import AdminIcon from "../Assets/AdminIcon.webp";
+
 const Home = (props) => {
   const commands = [
     {
@@ -36,31 +41,42 @@ const Home = (props) => {
   }
 
   return (
-    <div className="background">
-      <div className="heading">
-        <h1>
-          Online
-          <br /> Education System
-        </h1>
-      </div>
-      <div className="role">
-        <p>Select Your Role</p>
-      </div>
-      <div className="action">
-        <Link to="/studentlogin.js" className="action_link">
-          Student
-        </Link>
-        <Link to="/facultylogin.js" className="action_link">
-          Faculty
-        </Link>
-        <a href="http://localhost:8000/admin" className="action_link">
-          Admin
-        </a>
-        {redirect}
-      </div>
-      <p id="transcript">Transcript: {transcript}</p>
+    <div className="HomePage">
+      <div className="home_left">
+        <div className="heading">
+          <h1>
+            Online
+            <br /> Education System
+          </h1>
+        </div>
+        <div className="role">
+          <p>Select Your Role</p>
+          <div className="role_under"></div>
+        </div>
+        <div className="action">
+          <Link to="/studentlogin.js" className="action_card">
+            <img src={StudentIcon} alt="studenticon"></img>
+            <p>Student</p>
+          </Link>
+          <Link to="/facultylogin.js" className="action_card">
+            <img src={TeacherIcon} alt="teachericon"></img>
+            <p>Teacher</p>
+          </Link>
+          <a href="http://localhost:8000/admin" className="action_card">
+            <img src={AdminIcon} alt="adminicon"></img>
+            <p>Admin</p>
+          </a>
 
-      <button onClick={SpeechRecognition.startListening}>Start</button>
+          {redirect}
+        </div>
+
+        <p id="transcript">Transcript: {transcript}</p>
+
+        <button onClick={SpeechRecognition.startListening}>Start</button>
+      </div>
+      <div className="home_right">
+        <img src={home_page} alt="homepage"></img>
+      </div>
     </div>
   );
 };

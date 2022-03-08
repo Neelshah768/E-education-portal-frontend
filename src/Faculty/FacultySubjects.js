@@ -35,7 +35,8 @@ const FacultySubjects = (props) => {
           subject_name: data[key].subject_name,
           subject_photo:data[key].subject_photo,
           branch:data[key].branch,
-          semester:data[key].semester
+          semester:data[key].semester,
+          link: data[key].link
         });
       }
       setSubjectList(loadedSubjectData);
@@ -57,6 +58,7 @@ const FacultySubjects = (props) => {
       subject_photo={sList.subject_photo}
       branch={sList.branch}
       semester={sList.semester}
+      link={sList.link}
     />
   ));
 

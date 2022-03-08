@@ -5,7 +5,7 @@ import SubjectButtons from './SubjectButtons';
 const FacultySubjectDataList = (props) => {
   const truncate = (input) =>
     input?.length > 24 ? `${input.substring(0, 24)}...` : input;
-
+  
     
     return (
     <div className="subjectData">
@@ -25,7 +25,7 @@ const FacultySubjectDataList = (props) => {
           {props.semester} - {props.branch}
         </h3>
         <div className="fdetails">
-         <SubjectButtons studentData={props.subject_code}/>
+         <SubjectButtons studentData={props.subject_code} link={props.link}/>
         </div>
       </div>
     </div>

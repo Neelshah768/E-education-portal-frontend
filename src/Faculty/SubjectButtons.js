@@ -6,7 +6,8 @@ const SubjectButtons = (props) => {
   const [studentList, setStudentList] = useState([]);
   const [error, setError] = useState();
   let subject_code = props.studentData;
-
+  
+  
   async function studentListhandler(props) {
    /* try {
       const response = await fetch(
@@ -60,9 +61,7 @@ const SubjectButtons = (props) => {
   return (
     <div>
       {error && <p>{error.message}</p>}
-      <Link to="/subjectDetail" className="fdetails_link">
-        Show More
-      </Link>
+      <a href={props.link} className="subdetails_link" target="_blank" rel="noreferrer">Show More</a>
       <Link
         to="/studentclass"
         className="fdetails_link"
