@@ -12,22 +12,40 @@ const StudentAssignmentDataList = (props) => {
     console.log(selectedFile.name);
     console.log(selectedFile);
 
-    const response = await fetch("", {
-      method: "POST",
-      body: selectedFile,
-      headers: {
-        Authorization: "Token " + localStorage.getItem("Student-token"),
-        "Content-Disposition": ' name="file"; filename=' + selectedFile.name,
-        "Subject-Code": localStorage.getItem("student-subject-code"),
-      },
-    });
+    const response = await fetch(
+      "http://localhost:8000/api/studentassignmentfileupload/",
+      {
+        method: "POST",
+        body: selectedFile,
+        headers: {
+          Authorization: "Token " + localStorage.getItem("Student-token"),
+          "Content-Disposition": ' name="file"; filename=' + selectedFile.name,
+          "Assignment-Code": props.file_id,
+        },
+      }
+    );
     const data = await response.json();
     console.log(data);
   };
 
-  const deleteHandler = () =>{
+  const deleteHandler = async () => {
     window.location.reload(false);
-  }
+    console.log(props.submitted_file_id);
+
+    const response = await fetch(
+      "http://localhost:8000/api/studentassignmentdelete/",
+      {
+        method: "POST",
+        body: JSON.stringify({ id: props.submitted_file_id }),
+        headers: {
+          Authorization: "Token " + localStorage.getItem("Student-token"),
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+  };
   return (
     <div className="assignmentData">
       <div className="a_list">
@@ -35,7 +53,7 @@ const StudentAssignmentDataList = (props) => {
           <h3> File Name:- {props.file_name}</h3>
         </a>
         <h3>Date:- {props.date}</h3>
-        <h3>Submitted File:- </h3>
+        <h3>Submitted File:- {props.submit_file} </h3>
         <button onClick={deleteHandler}>Delete File</button>
 
         <div className="a_buttons">

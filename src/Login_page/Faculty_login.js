@@ -9,6 +9,7 @@ const Faculty_login = (props) => {
   const [facultyId, setFacultyId] = useState("");
   const [facultyPassword, setFacultyPassword] = useState("");
   const [error, setError] = useState(null);
+  const [isLoading,setIsLoading] = useState(false);
   const [token, setToken] = useState("");
 
   const FacultyIdHandler = (event) => {
@@ -19,6 +20,7 @@ const Faculty_login = (props) => {
   };
   async function facultySubmitHandler(event) {
     event.preventDefault();
+    setIsLoading(true);
     if (facultyId.trim().length === 0 || facultyPassword.trim().length === 0) {
       setError({
         title: "Invalid Input",
@@ -58,6 +60,7 @@ const Faculty_login = (props) => {
 
     setFacultyId("");
     setFacultyPassword("");
+    setIsLoading(false);
   }
   const errorHandler = () => {
     setError(null);
@@ -102,6 +105,7 @@ const Faculty_login = (props) => {
             ></input>
             <button type="submit">Login </button>
           </form>
+          <section>{isLoading && <p>Loading....</p>}</section>
           </div>
         </Card>
 

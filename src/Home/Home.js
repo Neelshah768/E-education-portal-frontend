@@ -6,7 +6,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import home_page from "../Assets/hpage.webp";
 import StudentIcon from "../Assets/StudentIcon.png";
-import TeacherIcon from "../Assets/TeacherIcon.png";
+import TeacherIcon from "../Assets/tIcon.png";
 import AdminIcon from "../Assets/AdminIcon.webp";
 
 const Home = (props) => {

@@ -5,6 +5,7 @@ import AddAsignment from "./AddAsignment";
 
 const StudentClass = (props) => {
   const [studentList, setStudentList] = useState([]);
+  const [studentAssignment, setStudentAssignment] = useState('');
   const [error, setError] = useState();
 
   let subjectCode = { subject_code: localStorage.getItem("faculty-subject-code") };
@@ -25,7 +26,7 @@ const StudentClass = (props) => {
         throw new Error("Something went wrong!");
       }
       const data = await response.json();
-      console.log(data);
+      
 
       const loadedStudentList = [];
       for (const key in data) {
@@ -43,6 +44,13 @@ const StudentClass = (props) => {
       setError(err.message || "Something Went Wrong!");
     }
   }, []);
+
+  const sAssignmentList = (studentWork) => {
+    console.log(studentWork);
+    setStudentList(studentWork);
+    
+}
+
   const listStudent = studentList.map((sList) => (
     <StudentList
       id={sList.id}
@@ -51,17 +59,22 @@ const StudentClass = (props) => {
       student_first_name={sList.student_first_name}
       student_last_name={sList.student_last_name}
       student_email={sList.student_email}
+      file_name={sList.file_name}
+      assignmentLink={sList.link}
     />
   ));
 
+  
+
   return (
     <div>
-      <div><AddAsignment /></div>
+      <div><AddAsignment sAssignment={sAssignmentList}/></div>
       <div>{error && <p>{error.message}</p>}</div>
       <div className="studentClass">
         <p>Student ID</p>
         <p>Student Name</p>
         <p>Student Email</p>
+        <p>Student Work</p>
       </div>
       <div>
         {listStudent}

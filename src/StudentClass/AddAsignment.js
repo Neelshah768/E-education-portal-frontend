@@ -47,6 +47,9 @@ const AddAsignment = (props) => {
     const data = await response.json();
     
   };
+  const studentSubmittedWork = (studentWork) => {
+    props.sAssignment(studentWork);
+  }
 
 
   return (
@@ -67,7 +70,7 @@ const AddAsignment = (props) => {
           </SidebarHeader>
           <SidebarContent>
             
-            <AsignmentList />
+            <AsignmentList studentAssignment={studentSubmittedWork}/>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">

@@ -39,6 +39,9 @@ const AsignmentList = (props) => {
       setError(err.message || "Something Went Wrong!");
     }
   }, []);
+  const studentAssignment = (studentWork) => {
+      props.studentAssignment(studentWork);
+  }
 
   const listasignment = asignmentList.map((sList) => (
     <AsignmentDatalist
@@ -47,6 +50,7 @@ const AsignmentList = (props) => {
       file_name={sList.file_name}
       link={sList.link}
       file_id={sList.file_id}
+      studentWork={studentAssignment}
     />
   ));
   return <div className="listasignment">{listasignment}</div>;

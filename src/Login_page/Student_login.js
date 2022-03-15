@@ -12,8 +12,11 @@ const Student_login = (props) => {
   const [studentId, setStudentId] = useState("");
   const [studentPassword, setStudentPassword] = useState("");
   const [error, setError] = useState();
+  const [isLoading,setIsLoading] = useState(false);
   const [token, setToken] = useState("");
   const [redirectUrl, setRedirectUrl] = useState("");
+
+  //voice macros
   const commands = [
     {
       command: ["Open * page", "Go to * page", "Back to * page", "back *"],
@@ -40,15 +43,21 @@ const Student_login = (props) => {
       redirect = <p>Could not find page: {redirectUrl}</p>;
     }
   }
-
+ 
+  //take a userName
   const StudentIdHandler = (event) => {
     setStudentId(event.target.value);
   };
+
+  //take a password
   const StudentPasswordHandler = (event) => {
     setStudentPassword(event.target.value);
   };
+
+  //Form SubmitHandler
   async function studentSubmitHandler(event) {
     event.preventDefault();
+    setIsLoading(true);
     if (studentId.trim().length === 0 || studentPassword.trim().length === 0) {
       setError({
         title: "Invalid Input",
@@ -73,7 +82,7 @@ const Student_login = (props) => {
         setError({
           title: "Invalid Input",
           message:
-            "Please enter a valid UserName and Password(non-empty values).",
+            "Please enter a valid UserName and Password.",
         });
         setToken("");
       } else {
@@ -88,6 +97,7 @@ const Student_login = (props) => {
 
     setStudentId("");
     setStudentPassword("");
+    setIsLoading(false);
   }
   const errorHandler = () => {
     setError(null);
@@ -132,6 +142,7 @@ const Student_login = (props) => {
               ></input>
               <button type="submit">Login </button>
             </form>
+            <section>{isLoading && <p>Loading....</p>}</section>
           </div>
         </Card>
 
@@ -141,6 +152,7 @@ const Student_login = (props) => {
 
         <button onClick={SpeechRecognition.startListening}>Start</button>
       </div>
+      
     </div>
   );
 };

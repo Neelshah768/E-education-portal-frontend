@@ -23,6 +23,7 @@ const StudentProfile = (props) => {
         throw new Error("Somethig Went Wrong!");
       }
       const data = await response.json();
+      console.log(data);
 
       const loadedStudentData = [];
 
@@ -40,9 +41,10 @@ const StudentProfile = (props) => {
         bname: data.branch_name,
         semester: data.Semester,
         image: data.image,
+        attendance: data.attendance,
+        marks: data.marks,
       });
 
-      
       setStudentData(loadedStudentData);
     };
     fetchStudentData().catch((error) => {
@@ -66,6 +68,8 @@ const StudentProfile = (props) => {
       bname={sData.bname}
       semester={sData.semester}
       image={sData.image}
+      attendance={sData.attendance}
+      marks={sData.marks}
     />
   ));
 
@@ -75,11 +79,10 @@ const StudentProfile = (props) => {
       <div className="sidebar">
         <SideBar />
       </div>
-      <div>
-        <Card className="sprofile">
-          <ul>{dataList}</ul>
-        </Card>
-      </div>
+
+      <Card className="sprofile">
+        <ul>{dataList}</ul>
+      </Card>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import "./AsignmentDataList.css";
 import { useState } from "react";
 const AsignmentDataList = (props) => {
   const [error, setError] = useState();
-  console.log(JSON.stringify({ id: props.file_id }));
+  
   const FileDeleteHandler = async (event) => {
     try {
       const response = await fetch(
@@ -26,6 +26,22 @@ const AsignmentDataList = (props) => {
     }
     window.location.reload(false);
   };
+  const ShowStudentWork = async() =>{
+
+    const response = await fetch(
+      "http://localhost:8000/api/teacherstudentassignment/",
+      {
+        method: "POST",
+        body: JSON.stringify({"file_id": props.file_id }),
+        headers: {
+          Authorization: "Token " + localStorage.getItem("Faculty-token"),
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    props.studentWork(data);
+  }
   return (
     <div className="asignmentData">
       <p>{props.file_name}</p>
@@ -40,7 +56,7 @@ const AsignmentDataList = (props) => {
         </a>
         <button onClick={FileDeleteHandler}>Delete</button>
       </div>
-      <button>Show Student Work</button>
+      <button onClick={ShowStudentWork}>Show Student Work</button>
     </div>
   );
 };

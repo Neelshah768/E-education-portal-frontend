@@ -4,7 +4,7 @@
   display: flex;
 }
 .home_left {
-  height: 750px;
+  height: 100%;
 }
 .heading {
   margin-left: 150px;
@@ -68,24 +68,29 @@
 }
 
 @media (max-width: 580px) {
-  .background {
-    background: none;
+  .HomePage{
+    display: block;
+  }
+  .home_left{
+    height: 100%;
   }
   .heading {
     margin-left: 60px;
     padding-top: 50px;
   }
-  .background h1 {
+  .home_left h1 {
     font-size: 60px;
   }
   .role {
     font: inherit;
     font-size: 30px;
-    margin-left: 75px;
+    margin-left: 200px;
     margin-top: 60px;
     font-weight: bold;
   }
   .action {
-    margin-left: 60px;
+    display: block;
+    align-items: center;
+    margin-left: 300px;
   }
 }

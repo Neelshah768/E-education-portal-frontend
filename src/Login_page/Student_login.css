@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 .SBackground{
-  
-  background-repeat: no-repeat;
   min-height: 100vh;
   padding: 20px;
 }
@@ -78,6 +76,12 @@
   font-size: 25px;
   cursor: pointer;
 }
+.login .rightLogin section{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
 .login .rightLogin button:hover,
 .login button:active {
   color: #ff7a59;
@@ -87,6 +91,26 @@
 }
 
 @media (max-width: 580px) {
+  .SBackground{
+    min-width: 100%;
+    padding: 10px;
+  }
+  .studentPortal p{
+    margin: auto;
+  }
+  .login{
+    display: block;
+    min-width: 100%;
+  }
+  .login img{
+    height: 450px;
+  }
+  .login .rightLogin h2{
+    color: black;
+  }
+  .login .rightLogin label{
+    color: black;
+  }
   .login input {
     width: 20rem;
   }

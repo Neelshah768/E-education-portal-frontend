@@ -1,3 +1,8 @@
+.StudentProfile {
+    display: flex;
+    gap: 100px;
+}
+
 .StudentProfile img{
     height: 150px;
     width: 150px;
@@ -11,4 +16,13 @@
     font-size: 25px;
     margin: 10px;
     
+}
+.pieChart{
+    box-shadow: 0 2px 8px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.pieChart h2{
+    text-align: center;
+    color: red;
 }

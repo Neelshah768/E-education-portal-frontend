@@ -32,7 +32,9 @@ const StudentAssignmentList = (props) => {
           file_name: data[key].file_name,
           link: data[key].link,
           file_id: data[key].file_id,
-          date: data[key].date_created
+          date: data[key].date_created,
+          submit_file: data[key].submitted_file,
+          submitted_file_id:data[key].submitted_file_id
         });
       }
       setAsignmentList(loadedAssignmentList);
@@ -50,6 +52,8 @@ const StudentAssignmentList = (props) => {
       link={sList.link}
       file_id={sList.file_id}
       date={sList.date}
+      submit_file={sList.submit_file}
+      submitted_file_id={sList.submitted_file_id}
     />
   ));
   return (
