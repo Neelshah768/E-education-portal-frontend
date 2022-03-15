@@ -6,7 +6,7 @@ const FacultyClassroomDataList = (props) => {
     let subjectCode = { name: localStorage.getItem("faculty-subject-code") };
 
     console.log(props.subject_code);
-    
+
 const MeetingHandler = async(event) =>{
   localStorage.setItem("faculty-subject-code",props.subject_code);
     const response = await fetch(
@@ -22,7 +22,7 @@ const MeetingHandler = async(event) =>{
 
 const data = await response.json();
 console.log(data.id);
-alert("your meeting id "+ data.id + " coppy it");
+alert("your meeting id " + data.id + " Copy it");
 }   
 
    return (
