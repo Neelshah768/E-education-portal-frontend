@@ -5,7 +5,10 @@ const FacultyClassroomDataList = (props) => {
     input?.length > 24 ? `${input.substring(0, 24)}...` : input;
     let subjectCode = { name: localStorage.getItem("faculty-subject-code") };
 
+    console.log(props.subject_code);
+    
 const MeetingHandler = async(event) =>{
+  localStorage.setItem("faculty-subject-code",props.subject_code);
     const response = await fetch(
         "http://localhost:8000/api/room/",
         {
@@ -16,7 +19,7 @@ const MeetingHandler = async(event) =>{
           },
         }
     )
-    
+
 const data = await response.json();
 console.log(data.id);
 alert("your meeting id "+ data.id + " coppy it");

@@ -29,7 +29,7 @@ const CreateQuizForm = (props) => {
   }
   const SubmitHandler = async(event) => {
     event.preventDefault();
-
+    window.location.reload(false);
     const quizQuestions = {
         question:enteredQuestion,
         optionA:enterOptionA,
@@ -51,6 +51,7 @@ const CreateQuizForm = (props) => {
     });
     const data = await response.json();
         console.log(data);  
+        
   }
   return (
     <form onSubmit={SubmitHandler}>

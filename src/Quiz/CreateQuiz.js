@@ -20,7 +20,7 @@ const CreateQuiz = (props) => {
   const onSaveQuestionDataHandler = (data) => {
     setIsEditing(false);
     console.log(data);
-    setQuestion(data);
+    
   };
   const startEditingHandler = () => {
     setIsEditing(true);
