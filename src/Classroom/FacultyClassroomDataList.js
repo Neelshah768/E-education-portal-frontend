@@ -10,6 +10,7 @@ const FacultyClassroomDataList = (props) => {
 const MeetingHandler = async(event) =>{
   localStorage.setItem("faculty-subject-code",props.subject_code);
   let subjectCode = { name: localStorage.getItem("faculty-subject-code") };
+  
     const response = await fetch(
         "http://localhost:8000/api/room/",
         {

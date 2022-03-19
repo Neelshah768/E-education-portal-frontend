@@ -32,6 +32,8 @@ const StudentQuiz = (props) => {
     const data = await response.json();
     console.log(data);
 
+    
+
   
   };
   return (
@@ -62,7 +64,7 @@ const StudentQuiz = (props) => {
       <button type="submit" className="GiveAnswer" onClick={ansSubmitHandler}>
         Submit
       </button>
-      
+      <h2>Your Score:- {props.studentQuestion.result}</h2>
     </div>
   );
 };
